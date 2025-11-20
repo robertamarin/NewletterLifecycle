@@ -45,13 +45,28 @@
     #report {
       max-width: 860px;
       margin: 0 auto 80px auto;
-      padding: 26px 18px 18px 18px;
+      padding: 20px 18px 18px 18px;
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 18px;
       background: linear-gradient(135deg, rgba(72, 224, 201, 0.04), rgba(127, 200, 255, 0.04)), #0d172a;
       border-radius: 16px;
       box-shadow: 0 18px 48px rgba(0, 0, 0, 0.4);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 6px 4px 0 4px;
+    }
+
+    .brand-row img {
+      height: 62px;
+      max-width: 220px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35));
     }
 
     .section {
@@ -69,14 +84,14 @@
       position: relative;
       overflow: hidden;
       border-radius: 14px;
-      min-height: 260px;
+      min-height: 200px;
       background: var(--hero-image);
       background-size: cover;
       background-position: center;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 16px;
-      padding: 18px;
+      padding: 16px;
       box-shadow: var(--shadow);
     }
 
@@ -141,10 +156,6 @@
     .map-point.repair { background: var(--intelligrated); }
     .map-caption { position: absolute; bottom: 10px; right: 12px; font-size: 12px; color: var(--muted); }
 
-    .map-upload { margin-top: 12px; display: grid; gap: 8px; }
-    .map-upload label { font-size: 13px; color: var(--muted); }
-    .map-upload input { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 10px; color: var(--ink); }
-
     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
     .team-card { background: var(--card); border-radius: 12px; padding: 12px; display: grid; grid-template-columns: 56px 1fr; gap: 10px; align-items: center; border: 1px solid rgba(255,255,255,0.06); }
     .team-avatar { width: 56px; height: 56px; border-radius: 12px; background-image: linear-gradient(135deg, rgba(127,200,255,0.3), rgba(72,224,201,0.2)), var(--photo, url('assets/team/placeholder.svg')); position: relative; background-size: cover; background-position: center; overflow: hidden; }
@@ -202,7 +213,11 @@
   </style>
 </head>
 <body>
-    <div id="report">
+  <div id="report">
+      <div class="brand-row" aria-label="Program logos">
+        <img src="assets/logo-left-placeholder.svg" alt="Left brand placeholder" />
+        <img src="assets/logo-right-placeholder.svg" alt="Right brand placeholder" />
+      </div>
       <section class="hero" aria-label="Cover with hero image">
         <div class="hero-content">
           <h1>MHE RME Central Team – Asset Lifecycle Management</h1>
@@ -233,6 +248,24 @@
       <section class="section" aria-label="Assets in scope">
         <h2>Assets we oversee</h2>
         <h3 class="leadline">High Consequence Assets Under Our Management</h3>
+        <div class="image-grid" aria-label="High consequence asset photos">
+          <div class="image-card">
+            <img src="assets/hca-placeholder-1.svg" alt="Upload high consequence asset photo 1" />
+            <p class="subhead">Edit this caption to describe the first high consequence asset photo.</p>
+          </div>
+          <div class="image-card">
+            <img src="assets/hca-placeholder-2.svg" alt="Upload high consequence asset photo 2" />
+            <p class="subhead">Edit this caption to describe the second high consequence asset photo.</p>
+          </div>
+          <div class="image-card">
+            <img src="assets/hca-placeholder-3.svg" alt="Upload high consequence asset photo 3" />
+            <p class="subhead">Edit this caption to describe the third high consequence asset photo.</p>
+          </div>
+          <div class="image-card">
+            <img src="assets/hca-placeholder-4.svg" alt="Upload high consequence asset photo 4" />
+            <p class="subhead">Edit this caption to describe the fourth high consequence asset photo.</p>
+          </div>
+        </div>
         <div class="asset-grid">
           <div class="asset-card"><span class="asset-icon">SL</span><div><h4>Dematic SL2 / SL300 / SC3</h4><p>Tier-1 shoe sorters with full tear-down and recommissioning playbooks.</p></div></div>
           <div class="asset-card"><span class="asset-icon">IS</span><div><h4>Intelligrated Intellisort</h4><p>Lifecycle coverage for critical Intellisort platforms, including major repairs.</p></div></div>
@@ -411,10 +444,6 @@
               <span class="map-point rebuild" style="top: 48%; left: 60%;"></span>
               <span class="map-caption">Illustrative density of 134 rebuilds / 14 repairs</span>
             </div>
-            <div class="map-upload">
-              <label for="map-upload-input">Upload a custom world map (JPG, PNG, or SVG) and the deployment dots will overlay automatically.</label>
-              <input id="map-upload-input" type="file" accept="image/*" />
-            </div>
           </div>
           <div class="table-card">
             <table>
@@ -441,6 +470,7 @@
           <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/cody-steebner.jpg');"></div><div><h4>Cody Steebner</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Executes rebuild kits and QA checks.</p></div></div>
           <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/rich-vilvens.jpg');"></div><div><h4>Rich Vilvens</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Specializes in sorter component refurbishment.</p></div></div>
           <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/david-willard.jpg');"></div><div><h4>David Willard</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Supports kitting, repair, and outbound staging.</p></div></div>
+          <div class="team-card"><div class="team-avatar placeholder"></div><div><h4>Josh Persons</h4><div class="team-role">Global MHE Central Team Manager</div><p class="subhead">Leadership point for the lifecycle program and global alignment.</p></div></div>
         </div>
       </section>
 
@@ -512,23 +542,6 @@
         </div>
       </section>
   </div>
-
-  <script>
-    const mapUploadInput = document.getElementById('map-upload-input');
-    const customMapImg = document.getElementById('custom-map');
-
-    mapUploadInput?.addEventListener('change', (event) => {
-      const file = event.target.files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        if (typeof e.target?.result === 'string') {
-          customMapImg.src = e.target.result;
-        }
-      };
-      reader.readAsDataURL(file);
-    });
-  </script>
 
   </body>
 </html>
