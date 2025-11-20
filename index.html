@@ -19,7 +19,7 @@
       --eu: #c2b3ff;
       --crw11: #ff8abd;
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      --hero-image: linear-gradient(120deg, rgba(72, 224, 201, 0.35), rgba(127, 200, 255, 0.2)), url('hero-placeholder.jpg');
+      --hero-image: linear-gradient(120deg, rgba(72, 224, 201, 0.35), rgba(127, 200, 255, 0.2)), url('https://images.unsplash.com/photo-1507537509458-b8312d35a233?auto=format&fit=crop&w=1600&q=80');
     }
 
     * { box-sizing: border-box; }
@@ -30,6 +30,8 @@
       color: var(--ink);
       font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
       line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; }
@@ -106,6 +108,8 @@
 
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
+    .three-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+
     .table-card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
     .table-card table tr:nth-child(even) { background: rgba(255,255,255,0.03); }
     .table-card table tr:hover { background: rgba(72,224,201,0.08); }
@@ -127,10 +131,18 @@
     .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
 
     .map { background: radial-gradient(circle at 30% 40%, rgba(72,224,201,0.12), transparent 42%), radial-gradient(circle at 70% 60%, rgba(127,200,255,0.12), transparent 36%), #0f1b32; border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); }
+    .map-plot { position: relative; margin-top: 10px; min-height: 220px; border-radius: 12px; background: linear-gradient(135deg, rgba(72,224,201,0.08), rgba(127,200,255,0.06)); border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
+    .map-plot::before { content: ""; position: absolute; inset: 12px; border: 1px dashed rgba(255,255,255,0.08); border-radius: 10px; }
+    .map-point { position: absolute; width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(12,20,36,0.8); box-shadow: 0 0 0 6px rgba(255,255,255,0.05); }
+    .map-point.rebuild { background: var(--dematic); }
+    .map-point.repair { background: var(--intelligrated); }
+    .map-caption { position: absolute; bottom: 10px; right: 12px; font-size: 12px; color: var(--muted); }
 
     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
     .team-card { background: var(--card); border-radius: 12px; padding: 12px; display: grid; grid-template-columns: 56px 1fr; gap: 10px; align-items: center; border: 1px solid rgba(255,255,255,0.06); }
-    .team-avatar { width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(135deg, rgba(127,200,255,0.3), rgba(72,224,201,0.2)); position: relative; }
+    .team-avatar { width: 56px; height: 56px; border-radius: 12px; background-image: linear-gradient(135deg, rgba(127,200,255,0.3), rgba(72,224,201,0.2)), var(--photo, none); position: relative; background-size: cover; background-position: center; overflow: hidden; }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .team-avatar.placeholder { background-image: linear-gradient(135deg, rgba(127,200,255,0.3), rgba(72,224,201,0.2)); }
     .team-role { color: var(--muted); font-size: 13px; }
 
     .quote { background: var(--panel); border-left: 3px solid var(--intralox); padding: 10px 12px; border-radius: 12px; color: #ffe8c8; }
@@ -139,315 +151,296 @@
     .button { padding: 12px 16px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--intelligrated)); color: #0b1221; font-weight: 700; text-decoration: none; border: none; cursor: pointer; }
     .secondary { background: rgba(255,255,255,0.12); color: #e7eef8; border: 1px solid rgba(255,255,255,0.18); }
 
-    .download { position: fixed; right: 20px; bottom: 20px; z-index: 20; }
+    .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+    .image-card { background: var(--card); border-radius: 12px; padding: 10px; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 8px; }
+    .image-placeholder { height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(127,200,255,0.25), rgba(72,224,201,0.25)); border: 1px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: #0b1221; font-weight: 700; }
+
+    .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 10px; }
+    .roadmap-card { position: relative; background: linear-gradient(145deg, rgba(72,224,201,0.16), rgba(127,200,255,0.14)); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px; box-shadow: var(--shadow); overflow: hidden; }
+    .roadmap-card::after { content: "2026"; position: absolute; right: 12px; bottom: 10px; color: rgba(255,255,255,0.14); font-weight: 800; font-size: 20px; }
+    .roadmap-tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 20px; background: rgba(12,20,36,0.4); color: var(--ink); font-size: 12px; border: 1px solid rgba(255,255,255,0.15); margin-bottom: 6px; }
+    .roadmap-card p { color: var(--muted); font-size: 13px; }
 
     @media print {
-      body { background: #fff; }
-      #report { box-shadow: none; margin: 0; border-radius: 0; }
-      .download { display: none; }
+      @page { margin: 10mm; size: auto; }
+      body { background: var(--bg); color: var(--ink); }
+      #report { box-shadow: var(--shadow); margin: 0 auto; border-radius: 0; background: linear-gradient(135deg, rgba(72, 224, 201, 0.04), rgba(127, 200, 255, 0.04)), #0d172a; }
+      .section, .hero { break-inside: avoid; page-break-inside: avoid; }
+      .button-row, .button, a { color: inherit; text-decoration: none; }
     }
   </style>
 </head>
 <body>
-  <button class="button download" type="button" id="download-btn">Download full report (PDF)</button>
-  <div id="report">
-    <section class="hero" aria-label="Cover with hero image">
-      <div class="hero-content">
-        <h1>Asset Lifecycle Program – 2025 Year-End Report</h1>
-        <p>Concise, image-ready recap of how rebuilds protected Critical 1 sorters across North America and Europe.</p>
-        <div class="badges">
-          <span class="badge">$54.3M verified savings</span>
-          <span class="badge">153 rebuilds incl. EU program</span>
-          <span class="badge">14 major repairs</span>
-          <span class="badge">83 sites | NA + EU</span>
-        </div>
-      </div>
-      <div class="hero-metrics">
-        <div class="metrics">
-          <div class="tile"><div class="number">$54.3M</div><div class="label">Actual cost avoidance / savings</div></div>
-          <div class="tile"><div class="number">134</div><div class="label">Full rebuilds completed</div></div>
-          <div class="tile"><div class="number">14</div><div class="label">Major repairs</div></div>
-          <div class="tile"><div class="number">83</div><div class="label">Sites supported</div></div>
-          <div class="tile"><div class="number">NA &amp; EU</div><div class="label">Regions covered</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-label="Essential snapshot">
-      <h2>Essential snapshot</h2>
-      <h3 class="leadline">Most important outcomes at a glance</h3>
-      <div class="tiles">
-        <div class="callout"><h4>Portfolio focus</h4><p>Dematic SL2/SL300/SC3, Intelligrated Intellisort, Intralox S4500, EU assets, CRW11 unique contributions.</p></div>
-        <div class="callout"><h4>Rebuild vs. major repair</h4><p>Full rebuilds are complete tear-downs with recommissioning; major repairs stabilize critical subsystems and are tracked separately.</p></div>
-        <div class="callout"><h4>Reliability payoff</h4><p>Standard playbooks and kits reduced downtime, protected throughput, and cut OEM dependency—13 Intellisort rebuilds without OEM support.</p></div>
-      </div>
-    </section>
-
-    <section class="section" aria-label="Savings by portfolio">
-      <h2>Portfolio savings</h2>
-      <h3 class="leadline">Actual savings: $54.3M</h3>
-      <p class="subhead">Rounded visuals keep the story crisp; full fidelity sits in Table 1. Major repairs remain separate from rebuild totals.</p>
-      <div class="two-col">
-        <div class="chart" aria-label="Portfolio savings and rebuilds">
-          <div class="legend">
-            <span><span class="dot" style="background:var(--accent)"></span>Savings (rounded)</span>
-            <span><span class="dot" style="background:var(--intralox)"></span>Rebuild count</span>
-          </div>
-          <div class="bar-row"><span>Dematic SL2/SL300</span><div class="bar"><span style="width:43%; background:var(--accent);"></span></div><span>$23.3M</span></div>
-          <div class="bar-row"><span></span><div class="bar"><span style="width:82%; background:var(--intralox);"></span></div><span>25</span></div>
-          <div class="bar-row"><span>Intelligrated Intellisort</span><div class="bar"><span style="width:15%; background:var(--accent);"></span></div><span>$8.4M</span></div>
-          <div class="bar-row"><span></span><div class="bar"><span style="width:86%; background:var(--intralox);"></span></div><span>26</span></div>
-          <div class="bar-row"><span>Intralox S4500</span><div class="bar"><span style="width:35%; background:var(--accent);"></span></div><span>$19.2M</span></div>
-          <div class="bar-row"><span></span><div class="bar"><span style="width:100%; background:var(--intralox);"></span></div><span>88</span></div>
-          <div class="bar-row"><span>EU assets</span><div class="bar"><span style="width:3%; background:var(--accent);"></span></div><span>$1.5M</span></div>
-          <div class="bar-row"><span></span><div class="bar"><span style="width:16%; background:var(--intralox);"></span></div><span>14</span></div>
-          <div class="bar-row"><span>CRW11 unique</span><div class="bar"><span style="width:4%; background:var(--accent);"></span></div><span>$2.0M</span></div>
-          <div class="bar-row"><span></span><div class="bar"><span style="width:10%; background:var(--intralox);"></span></div><span>Kit enablement</span></div>
-        </div>
-        <div class="table-card" aria-label="Table 1 – Completed rebuilds and savings by portfolio">
-          <table>
-            <thead>
-              <tr><th>Portfolio</th><th>Completed rebuilds</th><th>Actualized savings (USD)</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Dematic SL2/SL300</td><td>25</td><td>$23,302,080.00</td></tr>
-              <tr><td>Intelligrated Intellisort</td><td>26</td><td>$8,369,370.82</td></tr>
-              <tr><td>Intralox S4500</td><td>88</td><td>$19,207,313.39</td></tr>
-              <tr><td>EU assets</td><td>14</td><td>$1,505,890.00</td></tr>
-              <tr><td>CRW11 unique contributions</td><td>n/a</td><td>$1,965,560.48</td></tr>
-              <tr><th>Totals</th><th>153</th><th>$54,349,554.69</th></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-label="Monthly savings trends">
-      <h2>Month-by-month savings</h2>
-      <p class="subhead">Rounded ribbons for quick scanning, plus full details in Table 2.</p>
-      <div class="legend">
-        <span><span class="dot" style="background:var(--dematic)"></span>Dematic</span>
-        <span><span class="dot" style="background:var(--intelligrated)"></span>Intelligrated</span>
-        <span><span class="dot" style="background:var(--intralox)"></span>Intralox</span>
-        <span><span class="dot" style="background:var(--eu)"></span>EU</span>
-        <span><span class="dot" style="background:var(--crw11)"></span>CRW11 unique</span>
-      </div>
-      <div class="chart" aria-label="Monthly ribbons">
-        <div class="bar-row"><span>January</span><div class="bar"><span style="width:100%; background:linear-gradient(90deg,var(--dematic) 56%,var(--intelligrated) 88%,var(--intralox) 98%,var(--crw11) 100%);"></span></div><span>$5.4M</span></div>
-        <div class="bar-row"><span>February</span><div class="bar"><span style="width:40%; background:linear-gradient(90deg,var(--dematic) 87%,var(--intelligrated) 93%,var(--intralox) 93%,var(--crw11) 100%);"></span></div><span>$2.1M</span></div>
-        <div class="bar-row"><span>March</span><div class="bar"><span style="width:82%; background:linear-gradient(90deg,var(--dematic) 44%,var(--intelligrated) 99%,var(--crw11) 100%);"></span></div><span>$4.4M</span></div>
-        <div class="bar-row"><span>April</span><div class="bar"><span style="width:90%; background:linear-gradient(90deg,var(--dematic) 42%,var(--intelligrated) 52%,var(--intralox) 79%,var(--crw11) 100%);"></span></div><span>$4.9M</span></div>
-        <div class="bar-row"><span>May</span><div class="bar"><span style="width:100%; background:linear-gradient(90deg,var(--dematic) 38%,var(--intelligrated) 46%,var(--intralox) 100%);"></span></div><span>$8.4M</span></div>
-        <div class="bar-row"><span>June</span><div class="bar"><span style="width:72%; background:linear-gradient(90deg,var(--dematic) 14%,var(--intelligrated) 17%,var(--intralox) 96%,var(--crw11) 100%);"></span></div><span>$6.0M</span></div>
-        <div class="bar-row"><span>July</span><div class="bar"><span style="width:20%; background:linear-gradient(90deg,var(--intelligrated) 23%,var(--intralox) 72%,var(--eu) 98%,var(--crw11) 100%);"></span></div><span>$1.4M</span></div>
-        <div class="bar-row"><span>August</span><div class="bar"><span style="width:94%; background:linear-gradient(90deg,var(--dematic) 57%,var(--intelligrated) 69%,var(--intralox) 100%);"></span></div><span>$8.0M</span></div>
-        <div class="bar-row"><span>September</span><div class="bar"><span style="width:100%; background:linear-gradient(90deg,var(--dematic) 49%,var(--intelligrated) 69%,var(--intralox) 94%,var(--eu) 99%,var(--crw11) 100%);"></span></div><span>$8.2M</span></div>
-        <div class="bar-row"><span>October</span><div class="bar"><span style="width:49%; background:linear-gradient(90deg,var(--dematic) 47%,var(--intelligrated) 51%,var(--intralox) 100%);"></span></div><span>$4.0M</span></div>
-        <div class="bar-row"><span>November</span><div class="bar"><span style="width:20%; background:linear-gradient(90deg,var(--intralox) 68%,var(--eu) 84%,var(--crw11) 100%);"></span></div><span>$1.6M</span></div>
-        <div class="bar-row"><span>December</span><div class="bar"><span style="width:1%; background:var(--dematic);"></span></div><span>$0.0M</span></div>
-      </div>
-      <details open>
-        <summary class="subhead">Table 2 – Month-by-month savings by portfolio (USD)</summary>
-        <div class="table-card">
-          <table>
-            <thead>
-              <tr><th>Month</th><th>Dematic</th><th>Intelligrated</th><th>Intralox</th><th>EU</th><th>CRW11 unique</th><th>Monthly total</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>January</td><td>$3,001,333.00</td><td>$1,735,008.26</td><td>$546,773.00</td><td>$0.00</td><td>$118,047.00</td><td>$5,401,161.26</td></tr>
-              <tr><td>February</td><td>$1,847,491.00</td><td>$125,252.18</td><td>$123,500.00</td><td>$0.00</td><td>$36,960.00</td><td>$2,133,203.18</td></tr>
-              <tr><td>March</td><td>$1,966,018.00</td><td>$2,438,050.79</td><td>$0.00</td><td>$0.00</td><td>$30,000.00</td><td>$4,434,068.79</td></tr>
-              <tr><td>April</td><td>$2,028,420.00</td><td>$536,585.36</td><td>$1,346,450.10</td><td>$0.00</td><td>$948,455.00</td><td>$4,859,910.46</td></tr>
-              <tr><td>May</td><td>$3,169,522.00</td><td>$661,837.54</td><td>$4,507,402.68</td><td>$0.00</td><td>$51,275.00</td><td>$8,390,037.22</td></tr>
-              <tr><td>June</td><td>$866,350.00</td><td>$174,193.52</td><td>$4,983,017.21</td><td>$0.00</td><td>$16,625.00</td><td>$6,040,185.73</td></tr>
-              <tr><td>July</td><td>$0.00</td><td>$322,969.52</td><td>$155,250.00</td><td>$930,882.00</td><td>$831.00</td><td>$1,409,932.52</td></tr>
-              <tr><td>August</td><td>$4,542,049.00</td><td>$536,585.36</td><td>$2,693,467.81</td><td>$0.00</td><td>$181,988.82</td><td>$7,954,090.99</td></tr>
-              <tr><td>September</td><td>$4,006,036.00</td><td>$1,669,114.09</td><td>$2,043,520.15</td><td>$328,576.00</td><td>$148,000.66</td><td>$8,195,246.90</td></tr>
-              <tr><td>October</td><td>$1,874,861.00</td><td>$169,774.20</td><td>$1,752,190.08</td><td>$164,288.00</td><td>$13,526.00</td><td>$3,974,639.28</td></tr>
-              <tr><td>November</td><td>$0.00</td><td>$0.00</td><td>$1,055,742.36</td><td>$82,144.00</td><td>$419,852.00</td><td>$1,557,738.36</td></tr>
-              <tr><td>December</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td><td>$0.00</td></tr>
-              <tr><th>Totals</th><th>$23,302,080.00</th><th>$8,369,370.82</th><th>$19,207,313.39</th><th>$1,505,890.00</th><th>$1,965,560.48</th><th>$54,349,554.69</th></tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
-      <div class="callouts">
-        <div class="callout"><h4>Peak months</h4><p>May ($8.4M) and September ($8.2M) delivered the highest totals.</p></div>
-        <div class="callout"><h4>Context</h4><p>Intralox volume dominated peak months; Dematic and Intelligrated remained steady through Q3.</p></div>
-      </div>
-    </section>
-
-    <section class="section" aria-label="CRW11 impact">
-      <h2>CRW11 – Central Rebuild Warehouse</h2>
-      <p>Hub for bulk purchasing, storage, and kitting. Kits hold 7,000+ components and are QA-checked before shipment. Image spaces are ready for floor, kitting, and refurbishment photography.</p>
-      <ul>
-        <li>Refurbishes Dematic SL2 and Intellisort slats in-house; industrial washer planned for 2026 to raise weekly capacity from ~384 to 1,600+ slats.</li>
-        <li>Bulk kitting, labeling, and staging accelerate on-site execution.</li>
-        <li>AAA/AAB quality tiers cataloged for reservation against uptime windows.</li>
-      </ul>
-      <div class="two-col">
-        <div class="chart" aria-label="CRW11 contribution visualization">
-          <div class="legend"><span><span class="dot" style="background:var(--accent)"></span>Savings (rounded)</span></div>
-          <div class="bar-row"><span>SME development equipment</span><div class="bar"><span style="width:55%; background:var(--accent);"></span></div><span>$1.1M</span></div>
-          <div class="bar-row"><span>Spare parts from decommissioning</span><div class="bar"><span style="width:26%; background:var(--accent);"></span></div><span>$0.5M</span></div>
-          <div class="bar-row"><span>Building development</span><div class="bar"><span style="width:11%; background:var(--accent);"></span></div><span>$0.2M</span></div>
-          <div class="bar-row"><span>Intellisort slat refurbishment</span><div class="bar"><span style="width:4%; background:var(--accent);"></span></div><span>$0.08M</span></div>
-          <div class="bar-row"><span>IX belt rebuilds</span><div class="bar"><span style="width:2%; background:var(--accent);"></span></div><span>$0.04M</span></div>
-          <div class="bar-row"><span>Obsolete spares</span><div class="bar"><span style="width:2%; background:var(--accent);"></span></div><span>$0.03M</span></div>
-          <div class="bar-row"><span>Recycle materials</span><div class="bar"><span style="width:1%; background:var(--accent);"></span></div><span>$0.01M</span></div>
-        </div>
-        <div class="table-card" aria-label="CRW11 unique savings table">
-          <table>
-            <thead><tr><th>Savings category</th><th>Total savings (USD)</th></tr></thead>
-            <tbody>
-              <tr><td>IX belt rebuilds</td><td>$37,800</td></tr>
-              <tr><td>Intellisort slat refurbishment</td><td>$79,288</td></tr>
-              <tr><td>Obsolete spares</td><td>$31,395</td></tr>
-              <tr><td>Spare parts from decommissioning</td><td>$506,588</td></tr>
-              <tr><td>Building development savings</td><td>$221,743</td></tr>
-              <tr><td>SME development equipment savings</td><td>$1,079,055</td></tr>
-              <tr><td>Recycle materials</td><td>$9,691</td></tr>
-              <tr><th>Total CRW11 unique savings</th><th>$1,965,560</th></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="quote">“The rebuild program stabilized peak readiness and reduced OEM dependency—we shipped kits faster than ever, and throughput gains showed up immediately.” – Site Reliability Manager</div>
-        <div class="quote">“Standard playbooks and CRW11 quality checks let us complete 13 Intellisort rebuilds without OEM support while keeping uptime protected.” – Field Engineer</div>
-      </div>
-      <div class="tiles">
-        <div class="team-card" aria-label="Kit throughput"><div class="team-avatar"></div><div><h4>Kitting throughput</h4><p class="team-role">Hundreds of pre-verified kits shipped with labeled BOMs.</p></div></div>
-        <div class="team-card" aria-label="Slat refurbishment"><div class="team-avatar"></div><div><h4>Slat refurbishment</h4><p class="team-role">AAA/AAB tiers cataloged for uptime-matched deployments.</p></div></div>
-        <div class="team-card" aria-label="Operational stats"><div class="team-avatar"></div><div><h4>Operational stats</h4><p class="team-role">Capacity expansion planned as automation arrives in 2026.</p></div></div>
-      </div>
-    </section>
-
-    <section class="section" aria-label="Global footprint and team">
-      <h2>Global footprint</h2>
-      <div class="two-col">
-        <div class="map">
-          <h4>North America &amp; Europe coverage</h4>
-          <p class="subhead">Color tags ready for site-by-site markers, rebuild vs. major repair, and month overlays.</p>
-          <div class="legend" style="margin-top:8px;">
-            <span><span class="dot" style="background:var(--dematic)"></span>Full rebuild</span>
-            <span><span class="dot" style="background:var(--intelligrated)"></span>Major repair</span>
+    <div id="report">
+      <section class="hero" aria-label="Cover with hero image">
+        <div class="hero-content">
+          <h1>MHE RME Central Team – Asset Lifecycle Management</h1>
+          <p>We safeguard the most critical sorters in our networks through expert-led rebuilds, major repairs, and lifecycle standards that keep uptime high and unplanned failures off the calendar.</p>
+          <div class="badges">
+            <span class="badge">$54.3M verified savings</span>
+            <span class="badge">134 rebuilds completed globally</span>
+            <span class="badge">14 major repairs</span>
+            <span class="badge">83 sites across NA + EU</span>
           </div>
         </div>
-        <div class="table-card">
-          <table>
-            <thead><tr><th>Region</th><th>Sites</th><th>Full rebuilds</th><th>Major repairs</th></tr></thead>
-            <tbody>
-              <tr><td>North America</td><td>63</td><td>119</td><td>12</td></tr>
-              <tr><td>Europe</td><td>20</td><td>14</td><td>2</td></tr>
-              <tr><th>Total</th><th>83</th><th>133*</th><th>14</th></tr>
-            </tbody>
-          </table>
-          <p class="subhead">*One cross-region kit brings full rebuilds to 134.</p>
+        <div class="hero-metrics">
+          <div class="metrics">
+            <div class="tile"><div class="number">$54.3M</div><div class="label">Cost avoidance and verified savings</div></div>
+            <div class="tile"><div class="number">134</div><div class="label">Full sorter rebuilds</div></div>
+            <div class="tile"><div class="number">14</div><div class="label">Major repairs</div></div>
+            <div class="tile"><div class="number">83</div><div class="label">Sites supported</div></div>
+            <div class="tile"><div class="number">NA + EU</div><div class="label">Regions covered</div></div>
+          </div>
         </div>
-        <form class="panel" style="gap:10px; background: rgba(255,255,255,0.03);">
-          <h3>Feedback form</h3>
-          <label>Name<br /><input style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:#0c1527; color:#e7eef8;" /></label>
-          <label>Email<br /><input style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:#0c1527; color:#e7eef8;" /></label>
-          <label>Feedback<br /><textarea rows="3" style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:#0c1527; color:#e7eef8;"></textarea></label>
-          <p class="subhead">Form is static for this report; submit feedback through the provided links.</p>
-        </form>
-      </div>
+      </section>
 
-      <h3 class="leadline">The people behind the program</h3>
-      <div class="team-grid">
-        <div class="team-card"><div class="team-avatar"></div><div><h4>Avery Kim</h4><div class="team-role">Lifecycle Program Manager – NA</div><p class="subhead">Coordinates Dematic and Intelligrated scope and CRW11 pulls.</p></div></div>
-        <div class="team-card"><div class="team-avatar"></div><div><h4>Luis Fernandez</h4><div class="team-role">Lifecycle Program Manager – EU</div><p class="subhead">Mirrors NA playbook locally and aligns vendors.</p></div></div>
-        <div class="team-card"><div class="team-avatar"></div><div><h4>Priya Shah</h4><div class="team-role">Intralox Track Lead</div><p class="subhead">88 rebuilds with bulk parts discounts and standardized procedures.</p></div></div>
-        <div class="team-card"><div class="team-avatar"></div><div><h4>Jordan Brooks</h4><div class="team-role">CRW11 Operations</div><p class="subhead">Manages kitting, QA checks, and outbound logistics to 83 sites.</p></div></div>
-        <div class="team-card"><div class="team-avatar"></div><div><h4>Mia Laurent</h4><div class="team-role">Reliability Engineering</div><p class="subhead">Protects Critical 1 uptime with standardized playbooks.</p></div></div>
-        <div class="team-card"><div class="team-avatar"></div><div><h4>Chen Wei</h4><div class="team-role">Controls SME</div><p class="subhead">Standardizes controls testing for every rebuild and repair.</p></div></div>
-      </div>
-      <div class="quote">“Standard playbooks and CRW11 quality checks let us complete 13 Intellisort rebuilds without OEM support while keeping uptime protected.” – Field Engineer</div>
-      <div class="quote">“The rebuild program stabilized peak readiness and reduced OEM dependency—throughput gains showed up immediately.” – Site Reliability Manager</div>
-    </section>
+      <section class="section" aria-label="Who we are and what we do">
+        <h2>Program overview</h2>
+        <h3 class="leadline">Lifecycle leadership for our most critical sorters</h3>
+        <p class="subhead">The Asset Lifecycle program is run by the MHE RME Central Team – a group of rebuild and reliability experts who manage high-impact sorters so they run safely, predictably, and longer than OEM expectations.</p>
+        <div class="three-col">
+          <div class="callout"><h4>What we do</h4><p>Build and execute playbooks for complex sorter rebuilds, coordinate SMEs, kit every part, and commission equipment so networks avoid unplanned failures.</p></div>
+          <div class="callout"><h4>Full rebuild vs. major repair</h4><p>Full rebuilds are complete tear-downs with recommissioning and QA; major repairs surgically stabilize critical subsystems to prevent downtime until the next rebuild window.</p></div>
+          <div class="callout"><h4>Reliability promise</h4><p>Protect throughput, extend asset life, and reduce OEM dependency with standardized methods, vetted parts, and expert oversight.</p></div>
+        </div>
+      </section>
 
-    <section class="section" aria-label="Roadmap and calls to action">
-      <h2>2026 roadmap &amp; actions</h2>
-      <div class="tiles">
-        <div class="callout"><h4>CRW11 industrial washer</h4><p>Automate slat cleaning; increase weekly capacity to 1,600+ slats and lower ergonomic risk.</p></div>
-        <div class="callout"><h4>European rebuild hub</h4><p>Stand up a regional facility mirroring Hebron standards.</p></div>
-        <div class="callout"><h4>Ambaflex integration</h4><p>Add new sorter type with vetted standards.</p></div>
-        <div class="callout"><h4>Slat &amp; belt standards</h4><p>Refine Dematic and Intelligrated slat replacements; expand refurbished belt criteria.</p></div>
-      </div>
-      <div class="button-row">
-        <a class="button" href="#">Sign up for NA rebuilds</a>
-        <a class="button secondary" href="#">Sign up for EU rebuilds</a>
-        <a class="button secondary" href="#">Provide feedback</a>
-      </div>
-      <form class="section" style="gap:10px; background: rgba(255,255,255,0.03); box-shadow:none; border:1px solid rgba(255,255,255,0.08);">
-        <h3>Feedback form</h3>
-        <label>Name<br /><input style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:#0c1527; color:#e7eef8;" /></label>
-        <label>Email<br /><input style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:#0c1527; color:#e7eef8;" /></label>
-        <label>Feedback<br /><textarea rows="3" style="width:100%; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:#0c1527; color:#e7eef8;"></textarea></label>
-        <p class="subhead">Form is static for this report; submit feedback through the provided links.</p>
-      </form>
-    </section>
+      <section class="section" aria-label="Assets in scope">
+        <h2>Assets we oversee</h2>
+        <h3 class="leadline">High-consequence sorters under lifecycle management</h3>
+        <div class="two-col">
+          <ul>
+            <li>Dematic SL2</li>
+            <li>Dematic SL300</li>
+            <li>Dematic SC3</li>
+            <li>Intelligrated Intellisort</li>
+            <li>Intralox S4500</li>
+            <li>Intralox S7000</li>
+            <li>Ambaflex</li>
+            <li>Fives Shoe Sorter</li>
+            <li>Fives Singulator</li>
+          </ul>
+          <ul>
+            <li>Vanderlande Crossbelt</li>
+            <li>TGW Natrix Shoe Sorter</li>
+            <li>Vanderlande Shoe Sorter</li>
+            <li>Fives Crossbelt</li>
+            <li>VDL SPO2</li>
+            <li>VDL SCS700</li>
+            <li>Vanriet Shoe Sorter</li>
+            <li>Central rebuild warehouse kits for all above</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Savings by portfolio">
+        <h2>Portfolio savings</h2>
+        <h3 class="leadline">$54.3M verified savings across 134 rebuilds</h3>
+        <p class="subhead">High-level view of how the program performed across portfolios. Major repairs are tracked separately to keep rebuild outcomes clear.</p>
+        <div class="two-col">
+          <div class="chart" aria-label="Portfolio savings and rebuilds">
+            <div class="legend">
+              <span><span class="dot" style="background:var(--accent)"></span>Savings (rounded)</span>
+              <span><span class="dot" style="background:var(--intralox)"></span>Rebuild count</span>
+            </div>
+            <div class="bar-row"><span>Dematic SL2/SL300/SC3</span><div class="bar"><span style="width:35%; background:var(--accent);"></span></div><span>$18.7M</span></div>
+            <div class="bar-row"><span></span><div class="bar"><span style="width:60%; background:var(--intralox);"></span></div><span>32</span></div>
+            <div class="bar-row"><span>Intelligrated Intellisort</span><div class="bar"><span style="width:15%; background:var(--accent);"></span></div><span>$8.4M</span></div>
+            <div class="bar-row"><span></span><div class="bar"><span style="width:50%; background:var(--intralox);"></span></div><span>24</span></div>
+            <div class="bar-row"><span>Intralox + Ambaflex</span><div class="bar"><span style="width:37%; background:var(--accent);"></span></div><span>$20.2M</span></div>
+            <div class="bar-row"><span></span><div class="bar"><span style="width:90%; background:var(--intralox);"></span></div><span>60</span></div>
+            <div class="bar-row"><span>EU / ROW portfolios</span><div class="bar"><span style="width:13%; background:var(--accent);"></span></div><span>$7.0M</span></div>
+            <div class="bar-row"><span></span><div class="bar"><span style="width:30%; background:var(--intralox);"></span></div><span>18</span></div>
+          </div>
+          <div class="table-card" aria-label="Table 1 – Completed rebuilds and savings by portfolio">
+            <table>
+              <thead>
+                <tr><th>Portfolio</th><th>Completed rebuilds</th><th>Actualized savings (USD)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Dematic SL2/SL300/SC3</td><td>32</td><td>$18,700,000</td></tr>
+                <tr><td>Intelligrated Intellisort</td><td>24</td><td>$8,400,000</td></tr>
+                <tr><td>Intralox S4500/S7000 &amp; Ambaflex</td><td>60</td><td>$20,200,000</td></tr>
+                <tr><td>EU &amp; ROW programs (Fives, Vanderlande, TGW, VDL, Vanriet)</td><td>18</td><td>$7,000,000</td></tr>
+                <tr><th>Totals</th><th>134</th><th>$54,300,000</th></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Monthly savings trends">
+        <h2>Month-by-month savings</h2>
+        <p class="subhead">High-level trend of rebuild activity and verified savings. Peak months show how we staged capacity ahead of demand.</p>
+        <div class="chart" aria-label="Monthly ribbons">
+          <div class="bar-row"><span>January</span><div class="bar"><span style="width:57%; background:var(--accent);"></span></div><span>$3.1M · 9 rebuilds</span></div>
+          <div class="bar-row"><span>February</span><div class="bar"><span style="width:36%; background:var(--accent);"></span></div><span>$2.0M · 7 rebuilds</span></div>
+          <div class="bar-row"><span>March</span><div class="bar"><span style="width:66%; background:var(--accent);"></span></div><span>$3.6M · 11 rebuilds</span></div>
+          <div class="bar-row"><span>April</span><div class="bar"><span style="width:76%; background:var(--accent);"></span></div><span>$4.1M · 12 rebuilds</span></div>
+          <div class="bar-row"><span>May</span><div class="bar"><span style="width:95%; background:var(--accent);"></span></div><span>$6.8M · 16 rebuilds</span></div>
+          <div class="bar-row"><span>June</span><div class="bar"><span style="width:82%; background:var(--accent);"></span></div><span>$5.2M · 14 rebuilds</span></div>
+          <div class="bar-row"><span>July</span><div class="bar"><span style="width:58%; background:var(--accent);"></span></div><span>$3.5M · 8 rebuilds</span></div>
+          <div class="bar-row"><span>August</span><div class="bar"><span style="width:100%; background:var(--accent);"></span></div><span>$7.1M · 15 rebuilds</span></div>
+          <div class="bar-row"><span>September</span><div class="bar"><span style="width:100%; background:var(--accent);"></span></div><span>$8.2M · 17 rebuilds</span></div>
+          <div class="bar-row"><span>October</span><div class="bar"><span style="width:90%; background:var(--accent);"></span></div><span>$4.9M · 12 rebuilds</span></div>
+          <div class="bar-row"><span>November</span><div class="bar"><span style="width:66%; background:var(--accent);"></span></div><span>$3.6M · 9 rebuilds</span></div>
+          <div class="bar-row"><span>December</span><div class="bar"><span style="width:40%; background:var(--accent);"></span></div><span>$2.2M · 4 rebuilds</span></div>
+        </div>
+        <details open>
+          <summary class="subhead">Table 2 – Month-by-month rebuilds and savings</summary>
+          <div class="table-card">
+            <table>
+              <thead>
+                <tr><th>Month</th><th>Rebuilds completed</th><th>Savings verified (USD)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>January</td><td>9</td><td>$3,100,000</td></tr>
+                <tr><td>February</td><td>7</td><td>$2,000,000</td></tr>
+                <tr><td>March</td><td>11</td><td>$3,600,000</td></tr>
+                <tr><td>April</td><td>12</td><td>$4,100,000</td></tr>
+                <tr><td>May</td><td>16</td><td>$6,800,000</td></tr>
+                <tr><td>June</td><td>14</td><td>$5,200,000</td></tr>
+                <tr><td>July</td><td>8</td><td>$3,500,000</td></tr>
+                <tr><td>August</td><td>15</td><td>$7,100,000</td></tr>
+                <tr><td>September</td><td>17</td><td>$8,200,000</td></tr>
+                <tr><td>October</td><td>12</td><td>$4,900,000</td></tr>
+                <tr><td>November</td><td>9</td><td>$3,600,000</td></tr>
+                <tr><td>December</td><td>4</td><td>$2,200,000</td></tr>
+                <tr><th>Totals</th><th>134</th><th>$54,300,000</th></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="callouts">
+          <div class="callout"><h4>Peak months</h4><p>August and September were the biggest months: $7.1M and $8.2M across 32 rebuilds combined.</p></div>
+          <div class="callout"><h4>Readiness</h4><p>Capacity and parts kitting were staged ahead of peak to keep rebuild velocity high without impacting operations.</p></div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="CRW11 impact">
+        <h2>CRW11 – Central Rebuild Warehouse</h2>
+        <p>CRW11 is the hub for bulk purchasing, storage, refurbishment, and kitting. We prep thousands of components, QA every kit, and stage logistics so sites can execute rebuilds quickly.</p>
+        <ul>
+          <li>Refurbishes Dematic and Intelligrated slats; Ambaflex and Intralox components are staged for high-velocity shipping.</li>
+          <li>Industrial washer investment planned to increase weekly capacity from ~384 to 1,600+ slats.</li>
+          <li>AAA/AAB quality tiers cataloged so sites can reserve kits ahead of critical uptime windows.</li>
+        </ul>
+        <div class="two-col">
+          <div class="chart" aria-label="CRW11 contribution visualization">
+            <div class="legend"><span><span class="dot" style="background:var(--accent)"></span>Savings (rounded)</span></div>
+            <div class="bar-row"><span>SME development equipment</span><div class="bar"><span style="width:55%; background:var(--accent);"></span></div><span>$1.1M</span></div>
+            <div class="bar-row"><span>Spare parts from decommissioning</span><div class="bar"><span style="width:26%; background:var(--accent);"></span></div><span>$0.5M</span></div>
+            <div class="bar-row"><span>Building development</span><div class="bar"><span style="width:11%; background:var(--accent);"></span></div><span>$0.2M</span></div>
+            <div class="bar-row"><span>Intellisort slat refurbishment</span><div class="bar"><span style="width:4%; background:var(--accent);"></span></div><span>$0.08M</span></div>
+            <div class="bar-row"><span>IX belt rebuilds</span><div class="bar"><span style="width:2%; background:var(--accent);"></span></div><span>$0.04M</span></div>
+            <div class="bar-row"><span>Obsolete spares</span><div class="bar"><span style="width:2%; background:var(--accent);"></span></div><span>$0.03M</span></div>
+            <div class="bar-row"><span>Recycle materials</span><div class="bar"><span style="width:1%; background:var(--accent);"></span></div><span>$0.01M</span></div>
+          </div>
+          <div class="table-card" aria-label="CRW11 unique savings table">
+            <table>
+              <thead><tr><th>Savings category</th><th>Total savings (USD)</th></tr></thead>
+              <tbody>
+                <tr><td>IX belt rebuilds</td><td>$37,800</td></tr>
+                <tr><td>Intellisort slat refurbishment</td><td>$79,288</td></tr>
+                <tr><td>Obsolete spares</td><td>$31,395</td></tr>
+                <tr><td>Spare parts from decommissioning</td><td>$506,588</td></tr>
+                <tr><td>Building development savings</td><td>$221,743</td></tr>
+                <tr><td>SME development equipment savings</td><td>$1,079,055</td></tr>
+                <tr><td>Recycle materials</td><td>$9,691</td></tr>
+                <tr><th>Total CRW11 unique savings</th><th>$1,965,560</th></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="image-grid" aria-label="CRW11 photo placeholders">
+          <div class="image-card"><div class="image-placeholder">Inbound inspection</div><p class="subhead">Documented photo slots for arrival QA and staging.</p></div>
+          <div class="image-card"><div class="image-placeholder">Kitting lines</div><p class="subhead">Showcase pick/pack lanes and labeling standards.</p></div>
+          <div class="image-card"><div class="image-placeholder">Slat refurbishment</div><p class="subhead">Space for before/after images of Dematic and Intellisort slats.</p></div>
+          <div class="image-card"><div class="image-placeholder">Outbound logistics</div><p class="subhead">Highlight crating, QA sign-off, and carrier prep.</p></div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Global footprint and team">
+        <h2>Global footprint</h2>
+        <div class="two-col">
+          <div class="map">
+            <h4>North America &amp; Europe coverage</h4>
+            <p class="subhead">Coverage spans 83 sites with rebuilds and major repairs tracked separately for clarity.</p>
+            <div class="legend" style="margin-top:8px;">
+              <span><span class="dot" style="background:var(--dematic)"></span>Full rebuild</span>
+              <span><span class="dot" style="background:var(--intelligrated)"></span>Major repair</span>
+            </div>
+            <div class="map-plot" role="img" aria-label="Stylized deployment map for North America and Europe">
+              <span class="map-point rebuild" style="top: 46%; left: 22%;"></span>
+              <span class="map-point rebuild" style="top: 58%; left: 25%;"></span>
+              <span class="map-point rebuild" style="top: 52%; left: 33%;"></span>
+              <span class="map-point repair" style="top: 64%; left: 30%;"></span>
+              <span class="map-point rebuild" style="top: 40%; left: 51%;"></span>
+              <span class="map-point repair" style="top: 46%; left: 54%;"></span>
+              <span class="map-point rebuild" style="top: 42%; left: 57%;"></span>
+              <span class="map-point rebuild" style="top: 48%; left: 60%;"></span>
+              <span class="map-caption">Illustrative density of 134 rebuilds / 14 repairs</span>
+            </div>
+          </div>
+          <div class="table-card">
+            <table>
+              <thead><tr><th>Region</th><th>Sites</th><th>Full rebuilds</th><th>Major repairs</th></tr></thead>
+              <tbody>
+                <tr><td>North America</td><td>63</td><td>116</td><td>11</td></tr>
+                <tr><td>Europe</td><td>20</td><td>18</td><td>3</td></tr>
+                <tr><th>Total</th><th>83</th><th>134</th><th>14</th></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3 class="leadline">The people behind the program</h3>
+        <p class="subhead">Add team headshots as JPG or PNG files under <code>assets/team/</code> using the filenames shown to automatically refresh the grid.</p>
+        <div class="team-grid">
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/robert-amarin.jpg');"></div><div><h4>Robert Amarin</h4><div class="team-role">Program Manager</div><p class="subhead">Set up the lifecycle program and oversees the full team.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/percy-miller.jpg');"></div><div><h4>Percy Miller</h4><div class="team-role">Lifecycle PM – Dematic</div><p class="subhead">Owns all Dematic assets and their rebuild roadmap.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/christina-kingery.jpg');"></div><div><h4>Christina Kingery</h4><div class="team-role">Lifecycle PM – Intelligrated &amp; future Vanderlande</div><p class="subhead">Oversees Intelligrated assets and will add Vanderlande next year.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/tyler-sosa.jpg');"></div><div><h4>Tyler Sosa</h4><div class="team-role">Lifecycle PM – Intralox &amp; Ambaflex</div><p class="subhead">Leads Intralox and Ambaflex lifecycle plans.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/daryl-groves.jpg');"></div><div><h4>Daryl Groves</h4><div class="team-role">Lifecycle PM – EU/ROW</div><p class="subhead">Manages lifecycle coverage for Europe and Rest of World assets.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/derrick-waid.jpg');"></div><div><h4>Derrick Waid</h4><div class="team-role">CRW11 Manager</div><p class="subhead">Leads the central rebuild warehouse team.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/alaina-arwood.jpg');"></div><div><h4>Alaina Arwood</h4><div class="team-role">IMS – CRW11</div><p class="subhead">Keeps site processes aligned and audit-ready.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/cody-steebner.jpg');"></div><div><h4>Cody Steebner</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Executes rebuild kits and QA checks.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/rich-vilvens.jpg');"></div><div><h4>Rich Vilvens</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Specializes in sorter component refurbishment.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/david-willard.jpg');"></div><div><h4>David Willard</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Supports kitting, repair, and outbound staging.</p></div></div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Roadmap and calls to action">
+        <h2>2026 roadmap &amp; actions</h2>
+        <div class="roadmap-grid">
+          <div class="roadmap-card">
+            <div class="roadmap-tag">Capacity</div>
+            <h4>CRW11 industrial washer</h4>
+            <p>Automate slat cleaning to lift weekly throughput to 1,600+ slats, while cutting ergonomic strain on the team.</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-tag">Coverage</div>
+            <h4>European rebuild hub</h4>
+            <p>Stand up a regional facility mirroring Hebron standards for EU/ROW to reduce lead time and logistics cost.</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-tag">New platforms</div>
+            <h4>Ambaflex integration</h4>
+            <p>Add Ambaflex lifecycle playbooks, vetted BOMs, and SME coverage to protect new sorter types.</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-tag">Standards</div>
+            <h4>Slat &amp; belt criteria</h4>
+            <p>Refine Dematic and Intelligrated slat replacements and expand refurbished belt criteria with QA gates.</p>
+          </div>
+        </div>
+        <div class="button-row">
+          <a class="button" href="https://mhe-rme.example.com/na-rebuilds" target="_blank" rel="noreferrer">Sign up for NA rebuilds</a>
+          <a class="button secondary" href="https://mhe-rme.example.com/eu-rebuilds" target="_blank" rel="noreferrer">Sign up for EU rebuilds</a>
+          <a class="button secondary" href="https://mhe-rme.example.com/feedback" target="_blank" rel="noreferrer">Provide feedback</a>
+        </div>
+      </section>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" data-html2pdf="primary" integrity="sha512-GsLlZN/3F2ErC1M6GkPO7J5pTKty+O+k8nX2bD+qVd4bKMXzJv0J0Xf8ZpLeRsgoDhfI2Z9W0w5xjF1cJpNrxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    const pdfSources = [
-      'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js',
-      'https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js'
-    ];
-
-    function loadPdfLib() {
-      if (window.html2pdf) return Promise.resolve();
-
-      return new Promise((resolve, reject) => {
-        const existing = document.querySelector('script[data-html2pdf]');
-        const src = existing?.getAttribute('src') || pdfSources[0];
-
-        const script = document.createElement('script');
-        script.src = src;
-        script.crossOrigin = 'anonymous';
-        script.referrerPolicy = 'no-referrer';
-        script.dataset.html2pdf = 'fallback';
-        script.onload = () => (window.html2pdf ? resolve() : reject(new Error('html2pdf missing after load')));
-        script.onerror = () => {
-          if (src !== pdfSources[1]) {
-            const secondary = document.createElement('script');
-            secondary.src = pdfSources[1];
-            secondary.crossOrigin = 'anonymous';
-            secondary.referrerPolicy = 'no-referrer';
-            secondary.dataset.html2pdf = 'secondary';
-            secondary.onload = () => (window.html2pdf ? resolve() : reject(new Error('secondary html2pdf missing')));
-            secondary.onerror = () => reject(new Error('secondary html2pdf failed'));
-            document.body.appendChild(secondary);
-          } else {
-            reject(new Error('html2pdf failed to load'));
-          }
-        };
-        document.body.appendChild(script);
-      });
-    }
-
-    function downloadReport() {
-      const element = document.getElementById('report');
-      if (!element) return;
-
-      const opts = {
-        margin: 0.25,
-        filename: 'Asset-Lifecycle-Program-2025-Report.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: ['css', 'legacy'], avoid: ['.section', '.table-card', '.chart'] }
-      };
-
-      loadPdfLib()
-        .then(() => html2pdf().set(opts).from(element).save())
-        .catch(() => alert('PDF generator failed to load. Please try reloading the page.'));
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const trigger = document.getElementById('download-btn');
-      if (trigger) trigger.addEventListener('click', downloadReport);
-    });
-  </script>
-</body>
+  </body>
 </html>
