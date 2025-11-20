@@ -30,6 +30,8 @@
       color: var(--ink);
       font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
       line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; }
@@ -129,10 +131,18 @@
     .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
 
     .map { background: radial-gradient(circle at 30% 40%, rgba(72,224,201,0.12), transparent 42%), radial-gradient(circle at 70% 60%, rgba(127,200,255,0.12), transparent 36%), #0f1b32; border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); }
+    .map-plot { position: relative; margin-top: 10px; min-height: 220px; border-radius: 12px; background: linear-gradient(135deg, rgba(72,224,201,0.08), rgba(127,200,255,0.06)); border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
+    .map-plot::before { content: ""; position: absolute; inset: 12px; border: 1px dashed rgba(255,255,255,0.08); border-radius: 10px; }
+    .map-point { position: absolute; width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(12,20,36,0.8); box-shadow: 0 0 0 6px rgba(255,255,255,0.05); }
+    .map-point.rebuild { background: var(--dematic); }
+    .map-point.repair { background: var(--intelligrated); }
+    .map-caption { position: absolute; bottom: 10px; right: 12px; font-size: 12px; color: var(--muted); }
 
     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
     .team-card { background: var(--card); border-radius: 12px; padding: 12px; display: grid; grid-template-columns: 56px 1fr; gap: 10px; align-items: center; border: 1px solid rgba(255,255,255,0.06); }
-    .team-avatar { width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(135deg, rgba(127,200,255,0.3), rgba(72,224,201,0.2)); position: relative; }
+    .team-avatar { width: 56px; height: 56px; border-radius: 12px; background-image: linear-gradient(135deg, rgba(127,200,255,0.3), rgba(72,224,201,0.2)), var(--photo, none); position: relative; background-size: cover; background-position: center; overflow: hidden; }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .team-avatar.placeholder { background-image: linear-gradient(135deg, rgba(127,200,255,0.3), rgba(72,224,201,0.2)); }
     .team-role { color: var(--muted); font-size: 13px; }
 
     .quote { background: var(--panel); border-left: 3px solid var(--intralox); padding: 10px 12px; border-radius: 12px; color: #ffe8c8; }
@@ -141,21 +151,30 @@
     .button { padding: 12px 16px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--intelligrated)); color: #0b1221; font-weight: 700; text-decoration: none; border: none; cursor: pointer; }
     .secondary { background: rgba(255,255,255,0.12); color: #e7eef8; border: 1px solid rgba(255,255,255,0.18); }
 
-    .download { position: fixed; right: 20px; bottom: 20px; z-index: 20; }
+    .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+    .image-card { background: var(--card); border-radius: 12px; padding: 10px; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 8px; }
+    .image-placeholder { height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(127,200,255,0.25), rgba(72,224,201,0.25)); border: 1px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: #0b1221; font-weight: 700; }
+
+    .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 10px; }
+    .roadmap-card { position: relative; background: linear-gradient(145deg, rgba(72,224,201,0.16), rgba(127,200,255,0.14)); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 14px; box-shadow: var(--shadow); overflow: hidden; }
+    .roadmap-card::after { content: "2026"; position: absolute; right: 12px; bottom: 10px; color: rgba(255,255,255,0.14); font-weight: 800; font-size: 20px; }
+    .roadmap-tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 20px; background: rgba(12,20,36,0.4); color: var(--ink); font-size: 12px; border: 1px solid rgba(255,255,255,0.15); margin-bottom: 6px; }
+    .roadmap-card p { color: var(--muted); font-size: 13px; }
 
     .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
     .image-card { background: var(--card); border-radius: 12px; padding: 10px; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 8px; }
     .image-placeholder { height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(127,200,255,0.25), rgba(72,224,201,0.25)); border: 1px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: #0b1221; font-weight: 700; }
 
     @media print {
-      body { background: #fff; }
-      #report { box-shadow: none; margin: 0; border-radius: 0; }
-      .download { display: none; }
+      @page { margin: 10mm; size: auto; }
+      body { background: var(--bg); color: var(--ink); }
+      #report { box-shadow: var(--shadow); margin: 0 auto; border-radius: 0; background: linear-gradient(135deg, rgba(72, 224, 201, 0.04), rgba(127, 200, 255, 0.04)), #0d172a; }
+      .section, .hero { break-inside: avoid; page-break-inside: avoid; }
+      .button-row, .button, a { color: inherit; text-decoration: none; }
     }
   </style>
 </head>
 <body>
-    <button class="button download" type="button" id="download-btn">Download full report (PDF)</button>
     <div id="report">
       <section class="hero" aria-label="Cover with hero image">
         <div class="hero-content">
@@ -355,6 +374,17 @@
               <span><span class="dot" style="background:var(--dematic)"></span>Full rebuild</span>
               <span><span class="dot" style="background:var(--intelligrated)"></span>Major repair</span>
             </div>
+            <div class="map-plot" role="img" aria-label="Stylized deployment map for North America and Europe">
+              <span class="map-point rebuild" style="top: 46%; left: 22%;"></span>
+              <span class="map-point rebuild" style="top: 58%; left: 25%;"></span>
+              <span class="map-point rebuild" style="top: 52%; left: 33%;"></span>
+              <span class="map-point repair" style="top: 64%; left: 30%;"></span>
+              <span class="map-point rebuild" style="top: 40%; left: 51%;"></span>
+              <span class="map-point repair" style="top: 46%; left: 54%;"></span>
+              <span class="map-point rebuild" style="top: 42%; left: 57%;"></span>
+              <span class="map-point rebuild" style="top: 48%; left: 60%;"></span>
+              <span class="map-caption">Illustrative density of 134 rebuilds / 14 repairs</span>
+            </div>
           </div>
           <div class="table-card">
             <table>
@@ -369,27 +399,44 @@
         </div>
 
         <h3 class="leadline">The people behind the program</h3>
+        <p class="subhead">Add team headshots as JPG or PNG files under <code>assets/team/</code> using the filenames shown to automatically refresh the grid.</p>
         <div class="team-grid">
-          <div class="team-card"><div class="team-avatar"></div><div><h4>Robert Amarin</h4><div class="team-role">Program Manager</div><p class="subhead">Set up the lifecycle program and oversees the full team.</p></div></div>
-          <div class="team-card"><div class="team-avatar"></div><div><h4>Percy Miller</h4><div class="team-role">Lifecycle PM – Dematic</div><p class="subhead">Owns all Dematic assets and their rebuild roadmap.</p></div></div>
-          <div class="team-card"><div class="team-avatar"></div><div><h4>Christina Kingery</h4><div class="team-role">Lifecycle PM – Intelligrated &amp; future Vanderlande</div><p class="subhead">Oversees Intelligrated assets and will add Vanderlande next year.</p></div></div>
-          <div class="team-card"><div class="team-avatar"></div><div><h4>Tyler Sosa</h4><div class="team-role">Lifecycle PM – Intralox &amp; Ambaflex</div><p class="subhead">Leads Intralox and Ambaflex lifecycle plans.</p></div></div>
-          <div class="team-card"><div class="team-avatar"></div><div><h4>Daryl Groves</h4><div class="team-role">Lifecycle PM – EU/ROW</div><p class="subhead">Manages lifecycle coverage for Europe and Rest of World assets.</p></div></div>
-          <div class="team-card"><div class="team-avatar"></div><div><h4>Derrick Waid</h4><div class="team-role">CRW11 Manager</div><p class="subhead">Leads the central rebuild warehouse team.</p></div></div>
-          <div class="team-card"><div class="team-avatar"></div><div><h4>Alaina Arwood</h4><div class="team-role">IMS – CRW11</div><p class="subhead">Keeps site processes aligned and audit-ready.</p></div></div>
-          <div class="team-card"><div class="team-avatar"></div><div><h4>Cody Steebner</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Executes rebuild kits and QA checks.</p></div></div>
-          <div class="team-card"><div class="team-avatar"></div><div><h4>Rich Vilvens</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Specializes in sorter component refurbishment.</p></div></div>
-          <div class="team-card"><div class="team-avatar"></div><div><h4>David Willard</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Supports kitting, repair, and outbound staging.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/robert-amarin.jpg');"></div><div><h4>Robert Amarin</h4><div class="team-role">Program Manager</div><p class="subhead">Set up the lifecycle program and oversees the full team.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/percy-miller.jpg');"></div><div><h4>Percy Miller</h4><div class="team-role">Lifecycle PM – Dematic</div><p class="subhead">Owns all Dematic assets and their rebuild roadmap.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/christina-kingery.jpg');"></div><div><h4>Christina Kingery</h4><div class="team-role">Lifecycle PM – Intelligrated &amp; future Vanderlande</div><p class="subhead">Oversees Intelligrated assets and will add Vanderlande next year.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/tyler-sosa.jpg');"></div><div><h4>Tyler Sosa</h4><div class="team-role">Lifecycle PM – Intralox &amp; Ambaflex</div><p class="subhead">Leads Intralox and Ambaflex lifecycle plans.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/daryl-groves.jpg');"></div><div><h4>Daryl Groves</h4><div class="team-role">Lifecycle PM – EU/ROW</div><p class="subhead">Manages lifecycle coverage for Europe and Rest of World assets.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/derrick-waid.jpg');"></div><div><h4>Derrick Waid</h4><div class="team-role">CRW11 Manager</div><p class="subhead">Leads the central rebuild warehouse team.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/alaina-arwood.jpg');"></div><div><h4>Alaina Arwood</h4><div class="team-role">IMS – CRW11</div><p class="subhead">Keeps site processes aligned and audit-ready.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/cody-steebner.jpg');"></div><div><h4>Cody Steebner</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Executes rebuild kits and QA checks.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/rich-vilvens.jpg');"></div><div><h4>Rich Vilvens</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Specializes in sorter component refurbishment.</p></div></div>
+          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/david-willard.jpg');"></div><div><h4>David Willard</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Supports kitting, repair, and outbound staging.</p></div></div>
         </div>
       </section>
 
       <section class="section" aria-label="Roadmap and calls to action">
         <h2>2026 roadmap &amp; actions</h2>
-        <div class="tiles">
-          <div class="callout"><h4>CRW11 industrial washer</h4><p>Automate slat cleaning; increase weekly capacity to 1,600+ slats and lower ergonomic risk.</p></div>
-          <div class="callout"><h4>European rebuild hub</h4><p>Stand up a regional facility mirroring Hebron standards.</p></div>
-          <div class="callout"><h4>Ambaflex integration</h4><p>Add new sorter type with vetted standards.</p></div>
-          <div class="callout"><h4>Slat &amp; belt standards</h4><p>Refine Dematic and Intelligrated slat replacements; expand refurbished belt criteria.</p></div>
+        <div class="roadmap-grid">
+          <div class="roadmap-card">
+            <div class="roadmap-tag">Capacity</div>
+            <h4>CRW11 industrial washer</h4>
+            <p>Automate slat cleaning to lift weekly throughput to 1,600+ slats, while cutting ergonomic strain on the team.</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-tag">Coverage</div>
+            <h4>European rebuild hub</h4>
+            <p>Stand up a regional facility mirroring Hebron standards for EU/ROW to reduce lead time and logistics cost.</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-tag">New platforms</div>
+            <h4>Ambaflex integration</h4>
+            <p>Add Ambaflex lifecycle playbooks, vetted BOMs, and SME coverage to protect new sorter types.</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-tag">Standards</div>
+            <h4>Slat &amp; belt criteria</h4>
+            <p>Refine Dematic and Intelligrated slat replacements and expand refurbished belt criteria with QA gates.</p>
+          </div>
         </div>
         <div class="button-row">
           <a class="button" href="https://mhe-rme.example.com/na-rebuilds" target="_blank" rel="noreferrer">Sign up for NA rebuilds</a>
@@ -399,49 +446,5 @@
       </section>
   </div>
 
-    <script>
-      const pdfSources = [
-        'https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js',
-        'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js'
-      ];
-
-      function loadPdfLib(index = 0) {
-        if (window.html2pdf) return Promise.resolve();
-        if (index >= pdfSources.length) return Promise.reject(new Error('html2pdf unavailable'));
-
-        return new Promise((resolve, reject) => {
-          const script = document.createElement('script');
-          script.src = pdfSources[index];
-          script.crossOrigin = 'anonymous';
-          script.referrerPolicy = 'no-referrer';
-          script.onload = () => (window.html2pdf ? resolve() : loadPdfLib(index + 1).then(resolve).catch(reject));
-          script.onerror = () => loadPdfLib(index + 1).then(resolve).catch(reject);
-          document.body.appendChild(script);
-        });
-      }
-
-    function downloadReport() {
-      const element = document.getElementById('report');
-      if (!element) return;
-
-      const opts = {
-        margin: 0.25,
-        filename: 'Asset-Lifecycle-Program-2025-Report.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: ['css', 'legacy'], avoid: ['.section', '.table-card', '.chart'] }
-      };
-
-      loadPdfLib()
-        .then(() => html2pdf().set(opts).from(element).save())
-        .catch(() => alert('PDF generator failed to load. Please try reloading the page.'));
-    }
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const trigger = document.getElementById('download-btn');
-        if (trigger) trigger.addEventListener('click', downloadReport);
-      });
-    </script>
   </body>
 </html>
