@@ -1,0 +1,31 @@
+<svg width="1200" height="650" viewBox="0 0 1200 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylized world map">
+  <defs>
+    <linearGradient id="mapGradient" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f1b32"/>
+      <stop offset="100%" stop-color="#14253f"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#73e5cf" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#7fc8ff" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="650" fill="url(#mapGradient)"/>
+  <g fill="url(#land)" stroke="#0b1424" stroke-width="3" stroke-linejoin="round" opacity="0.92">
+    <path d="M94 320 L154 276 L238 296 L310 260 L354 214 L426 210 L472 182 L560 198 L566 240 L518 284 L470 310 L420 326 L352 316 L292 338 L244 364 L202 374 L150 360 Z"/>
+    <path d="M520 188 L590 164 L656 170 L706 204 L752 208 L780 238 L746 262 L684 258 L640 238 L588 238 Z"/>
+    <path d="M722 236 L782 214 L846 236 L862 284 L820 296 L780 284 L744 264 Z"/>
+    <path d="M846 226 L888 214 L944 220 L986 246 L1006 278 L994 320 L936 330 L886 308 L850 278 Z"/>
+    <path d="M960 202 L1014 182 L1090 190 L1128 216 L1104 244 L1048 248 L980 236 Z"/>
+    <path d="M580 270 L632 282 L666 320 L676 360 L654 398 L612 400 L564 372 L544 330 L548 292 Z"/>
+    <path d="M680 328 L736 320 L774 342 L786 378 L770 410 L724 416 L692 388 Z"/>
+    <path d="M258 410 L320 390 L386 410 L424 444 L420 484 L380 504 L330 498 L284 468 Z"/>
+    <path d="M452 420 L504 402 L552 410 L584 446 L566 488 L516 504 L474 486 Z"/>
+    <path d="M872 362 L922 348 L966 366 L978 398 L952 426 L906 426 L868 402 Z"/>
+    <path d="M1022 382 L1064 360 L1120 366 L1148 396 L1120 420 L1066 424 Z"/>
+    <path d="M108 382 L160 372 L204 392 L214 432 L190 454 L144 448 L110 424 Z"/>
+    <path d="M82 454 L126 438 L176 446 L202 470 L190 500 L140 508 L90 488 Z"/>
+    <path d="M566 520 L606 492 L660 500 L686 536 L668 574 L614 582 L574 560 Z"/>
+    <path d="M240 504 L288 488 L332 506 L346 538 L320 566 L272 560 L234 534 Z"/>
+    <path d="M782 464 L836 450 L886 470 L898 512 L858 536 L806 528 L776 496 Z"/>
+  </g>
+</svg>
