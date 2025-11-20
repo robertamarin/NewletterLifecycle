@@ -158,7 +158,7 @@
 
     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
     .team-card { background: var(--card); border-radius: 12px; padding: 12px; display: grid; grid-template-columns: 56px 1fr; gap: 10px; align-items: center; border: 1px solid rgba(255,255,255,0.06); }
-    .team-avatar { width: 56px; height: 56px; border-radius: 12px; background-image: linear-gradient(135deg, rgba(127,200,255,0.3), rgba(72,224,201,0.2)), var(--photo, url('assets/team/placeholder.svg')); position: relative; background-size: cover; background-position: center; overflow: hidden; }
+    .team-avatar { width: 56px; height: 56px; border-radius: 12px; background: #0f1b32; background-image: var(--photo, url('assets/team/placeholder.svg')); position: relative; background-size: cover; background-position: center; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
     .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .team-avatar.placeholder { background-image: linear-gradient(135deg, rgba(127,200,255,0.3), rgba(72,224,201,0.2)); }
     .team-role { color: var(--muted); font-size: 13px; }
@@ -228,6 +228,7 @@
             <div class="tile"><div class="number">$54.3M</div><div class="label">Cost avoidance and verified savings</div></div>
             <div class="tile"><div class="number">134</div><div class="label">Full sorter rebuilds</div></div>
             <div class="tile"><div class="number">14</div><div class="label">Major repairs</div></div>
+            <div class="tile"><div class="number">16</div><div class="label">Number of unique assets managed</div></div>
             <div class="tile"><div class="number">83</div><div class="label">Sites supported</div></div>
             <div class="tile"><div class="number">NA + EU</div><div class="label">Regions covered</div></div>
           </div>
@@ -245,9 +246,32 @@
         </div>
       </section>
 
+      <section class="section" aria-label="Major wins for 2025">
+        <h2>Major wins</h2>
+        <h3 class="leadline">Proof points that made 2025 exceptional</h3>
+        <div class="callouts">
+          <div class="callout"><h4>Intralox rebuild engine</h4><p>Stood up a fully functional Intralox rebuild program with a dedicated Lifecycle PM and leveraged bulk ordering discounts that saved $XXX in parts.</p></div>
+          <div class="callout"><h4>Independent Intellisort execution</h4><p>Completed 13 full Intellisort rebuilds without Intelligrated support (vs. just 2 in 2024), demonstrating in-house expertise.</p></div>
+          <div class="callout"><h4>Dematic SC3 breakthrough</h4><p>Delivered our first Dematic SC3 rebuilds, paving the way to internalize SC3 programs by 2026.</p></div>
+          <div class="callout"><h4>Scale without disruption</h4><p>Finished 134 full rebuilds and 14 major repairs across 83 sites with no delays to operations—adapting to the mid-year directive of no full building shutdowns by creating alternate flow plans.</p></div>
+          <div class="callout"><h4>CRW11 capacity leap</h4><p>Approved a large industrial parts washer for CRW11 to automate slat cleaning and lift throughput while reducing ergonomic strain.</p></div>
+        </div>
+      </section>
+
       <section class="section" aria-label="Assets in scope">
         <h2>Assets we oversee</h2>
         <h3 class="leadline">High Consequence Assets Under Our Management</h3>
+        <div class="asset-grid">
+          <div class="asset-card"><span class="asset-icon">SL</span><div><h4>Dematic SL2 / SL300 / SC3</h4><p>Tier-1 shoe sorters with full tear-down and recommissioning playbooks.</p></div></div>
+          <div class="asset-card"><span class="asset-icon">IS</span><div><h4>Intelligrated Intellisort</h4><p>Lifecycle coverage for critical Intellisort platforms, including major repairs.</p></div></div>
+          <div class="asset-card"><span class="asset-icon">IX</span><div><h4>Intralox S4500 &amp; S7000</h4><p>High-velocity belt sorters with staged kits and refurbishment standards.</p></div></div>
+          <div class="asset-card"><span class="asset-icon">AM</span><div><h4>Ambaflex</h4><p>Vertical conveyor coverage with reliability guardrails and parts readiness.</p></div></div>
+          <div class="asset-card"><span class="asset-icon">FV</span><div><h4>Fives portfolio</h4><p>Shoe sorters, singulators, and crossbelts under centralized lifecycle management.</p></div></div>
+          <div class="asset-card"><span class="asset-icon">VN</span><div><h4>Vanderlande</h4><p>Crossbelt and shoe sorters covered with rebuild kits and SME oversight.</p></div></div>
+          <div class="asset-card"><span class="asset-icon">TG</span><div><h4>TGW Natrix</h4><p>Natrix shoe sorters included with scoped rebuild and QA processes.</p></div></div>
+          <div class="asset-card"><span class="asset-icon">VD</span><div><h4>VDL family</h4><p>SPO2 and SCS700 lines tracked with lifecycle criteria and reserved components.</p></div></div>
+          <div class="asset-card"><span class="asset-icon">CR</span><div><h4>Central rebuild warehouse kits</h4><p>Standardized kits across all platforms staged through CRW11.</p></div></div>
+        </div>
         <div class="image-grid" aria-label="High consequence asset photos">
           <div class="image-card">
             <img src="assets/hca-placeholder-1.svg" alt="Upload high consequence asset photo 1" />
@@ -265,17 +289,6 @@
             <img src="assets/hca-placeholder-4.svg" alt="Upload high consequence asset photo 4" />
             <p class="subhead">Edit this caption to describe the fourth high consequence asset photo.</p>
           </div>
-        </div>
-        <div class="asset-grid">
-          <div class="asset-card"><span class="asset-icon">SL</span><div><h4>Dematic SL2 / SL300 / SC3</h4><p>Tier-1 shoe sorters with full tear-down and recommissioning playbooks.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">IS</span><div><h4>Intelligrated Intellisort</h4><p>Lifecycle coverage for critical Intellisort platforms, including major repairs.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">IX</span><div><h4>Intralox S4500 &amp; S7000</h4><p>High-velocity belt sorters with staged kits and refurbishment standards.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">AM</span><div><h4>Ambaflex</h4><p>Vertical conveyor coverage with reliability guardrails and parts readiness.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">FV</span><div><h4>Fives portfolio</h4><p>Shoe sorters, singulators, and crossbelts under centralized lifecycle management.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">VN</span><div><h4>Vanderlande</h4><p>Crossbelt and shoe sorters covered with rebuild kits and SME oversight.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">TG</span><div><h4>TGW Natrix</h4><p>Natrix shoe sorters included with scoped rebuild and QA processes.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">VD</span><div><h4>VDL family</h4><p>SPO2 and SCS700 lines tracked with lifecycle criteria and reserved components.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">CR</span><div><h4>Central rebuild warehouse kits</h4><p>Standardized kits across all platforms staged through CRW11.</p></div></div>
         </div>
       </section>
 
