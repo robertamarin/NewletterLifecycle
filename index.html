@@ -19,7 +19,7 @@
       --eu: #c2b3ff;
       --crw11: #ff8abd;
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      --hero-image: linear-gradient(120deg, rgba(72, 224, 201, 0.35), rgba(127, 200, 255, 0.2)), url('assets/IMG_3474.jpg');
+      --hero-image: linear-gradient(120deg, rgba(72, 224, 201, 0.42), rgba(127, 200, 255, 0.28)), url('assets/IMG_3474.jpg');
     }
 
     * { box-sizing: border-box; }
@@ -87,7 +87,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(12, 20, 36, 0.6), rgba(12, 20, 36, 0.25));
+      background: linear-gradient(135deg, rgba(12, 20, 36, 0.42), rgba(12, 20, 36, 0.18));
     }
 
     .hero-content, .hero-metrics, .hero-logos { position: relative; z-index: 1; }
@@ -176,8 +176,8 @@
     .asset-card h4 { margin: 0; font-size: 15px; }
     .asset-card p { margin: 0; color: var(--muted); font-size: 13px; }
 
-    .savings-layout { align-items: start; }
-    .savings-graphic { background: linear-gradient(135deg, rgba(72, 224, 201, 0.14), rgba(127, 200, 255, 0.12)); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); padding: 12px; box-shadow: var(--shadow); display: grid; gap: 10px; }
+    .savings-layout { align-items: stretch; }
+    .savings-graphic { background: linear-gradient(135deg, rgba(72, 224, 201, 0.14), rgba(127, 200, 255, 0.12)); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); padding: 12px; box-shadow: var(--shadow); display: grid; gap: 10px; height: 100%; }
     .savings-graphic img { width: 100%; border-radius: 10px; display: block; border: 1px solid rgba(255,255,255,0.18); }
 
     .map { background: radial-gradient(circle at 30% 40%, rgba(72,224,201,0.12), transparent 42%), radial-gradient(circle at 70% 60%, rgba(127,200,255,0.12), transparent 36%), #0f1b32; border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); }
@@ -206,7 +206,10 @@
     .image-placeholder { height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(127,200,255,0.25), rgba(72,224,201,0.25)); border: 1px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: #0b1221; font-weight: 700; }
     .image-card img { width: 100%; border-radius: 10px; min-height: 140px; object-fit: cover; background: linear-gradient(135deg, rgba(127,200,255,0.25), rgba(72,224,201,0.25)); border: 1px solid rgba(255,255,255,0.08); }
 
-    .sparkline-card { background: linear-gradient(135deg, rgba(72,224,201,0.14), rgba(127,200,255,0.14)); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); padding: 12px; display: grid; gap: 8px; box-shadow: var(--shadow); }
+    .sparkline-card { background: linear-gradient(135deg, rgba(72,224,201,0.14), rgba(127,200,255,0.14)); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); padding: 12px; display: grid; gap: 8px; box-shadow: var(--shadow); height: 100%; }
+
+    .eol-visual img { width: 100%; max-height: 380px; object-fit: cover; }
+    .wide-image { margin-top: 10px; }
     .sparkline { width: 100%; height: 140px; border-radius: 10px; background: rgba(12,20,36,0.55); border: 1px solid rgba(255,255,255,0.08); padding: 10px; }
     .sparkline svg { width: 100%; height: 100%; display: block; }
     .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
@@ -365,7 +368,7 @@
         <h3 class="leadline">Major Accomplishments of 2025</h3>
         <div class="callouts">
           <div class="callout"><h4>Keep buildings online</h4><p>Stopped needing full building shutdowns for over 80% of rebuilds by designing alternate process flows, enabling equipment to be taken down and rebuilt while keeping operations live.</p></div>
-          <div class="callout"><h4>Intralox rebuild engine</h4><p>Stood up a fully functional Intralox rebuild program with a dedicated Lifecycle PM and leveraged bulk ordering discounts that saved $XXX in parts.</p></div>
+          <div class="callout"><h4>Intralox rebuild engine</h4><p>Stood up a fully functional Intralox rebuild program with a dedicated Lifecycle PM and leveraged bulk ordering discounts that saved $8.6M in parts.</p></div>
           <div class="callout"><h4>Independent Intellisort execution</h4><p>Completed 13 full Intellisort rebuilds without Intelligrated support (vs. just 2 in 2024), demonstrating in-house expertise.</p></div>
           <div class="callout"><h4>Dematic SC3 breakthrough</h4><p>Delivered our first Dematic SC3 rebuilds, paving the way to internalize SC3 programs by 2026.</p></div>
           <div class="callout"><h4>Scale without disruption</h4><p>Finished 135 full rebuilds and 14 major repairs across 83 sites with no delays to operations—adapting to the mid-year directive of no full building shutdowns by creating alternate flow plans.</p></div>
@@ -382,7 +385,7 @@
       <section class="section" aria-label="EOL predictive model">
         <h2>EOL Predictive Model</h2>
         <div class="two-col" style="align-items:center; gap:16px;">
-          <div class="image-card" style="height:100%;">
+          <div class="image-card eol-visual" style="height:100%;">
             <img src="assets/Predictive.png" alt="Illustration of predictive model dashboard" />
             <p class="subhead">EOL forecasting model visualization.</p>
           </div>
@@ -391,58 +394,9 @@
             <p>It also integrates reactive repair spend and network criticality weighting to ensure prioritization is aligned to operational risk and cost exposure. All outputs undergo validation before assets are selected for rebuild.</p>
           </div>
         </div>
-      </section>
-
-      <section class="section" aria-label="Global footprint and team">
-        <h2>Global footprint</h2>
-        <div class="two-col">
-          <div class="map">
-            <h4>North America &amp; Europe coverage</h4>
-            <p class="subhead">Coverage spans 83 sites with rebuilds and major repairs tracked separately for clarity.</p>
-            <div class="legend" style="margin-top:8px;">
-              <span><span class="dot" style="background:var(--dematic)"></span>Full rebuild</span>
-              <span><span class="dot" style="background:var(--intelligrated)"></span>Major repair</span>
-            </div>
-            <div class="map-plot" role="img" aria-label="Stylized deployment map for North America and Europe">
-              <img id="custom-map" src="assets/World.jpg" alt="World map background" />
-              <span class="map-point rebuild" style="top: 46%; left: 22%;"></span>
-              <span class="map-point rebuild" style="top: 58%; left: 25%;"></span>
-              <span class="map-point rebuild" style="top: 52%; left: 33%;"></span>
-              <span class="map-point repair" style="top: 64%; left: 30%;"></span>
-              <span class="map-point rebuild" style="top: 40%; left: 51%;"></span>
-              <span class="map-point repair" style="top: 46%; left: 54%;"></span>
-              <span class="map-point rebuild" style="top: 42%; left: 57%;"></span>
-              <span class="map-point rebuild" style="top: 48%; left: 60%;"></span>
-              <span class="map-caption">Illustrative density of 135 rebuilds / 14 repairs</span>
-            </div>
-          </div>
-          <div class="table-card">
-            <table>
-              <thead><tr><th>Region</th><th>Sites</th><th>Full rebuilds</th><th>Major repairs</th></tr></thead>
-              <tbody>fp
-                <tr><td>North America</td><td>63</td><td>117</td><td>11</td></tr>
-                <tr><td>Europe</td><td>20</td><td>18</td><td>3</td></tr>
-                <tr><th>Total</th><th>83</th><th>135</th><th>14</th></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <h3 class="leadline">The people behind the program</h3>
-        <p class="subhead">Add team headshots as JPG or PNG files under <code>assets/team/</code> using the filenames shown to automatically refresh the grid.</p>
-        <div class="team-grid">
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/robert.png');"></div><div><h4>Robert Amarin</h4><div class="team-role">Program Manager</div><p class="subhead">Set up the lifecycle program and oversees the full team.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Percy.png');"></div><div><h4>Percy Miller</h4><div class="team-role">Lifecycle PM – Dematic</div><p class="subhead">Owns all Dematic assets and their rebuild roadmap.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Christina.png');"></div><div><h4>Christina Kingery</h4><div class="team-role">Lifecycle PM – Intelligrated &amp; future Vanderlande</div><p class="subhead">Oversees Intelligrated assets and will add Vanderlande next year.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Tyker.png');"></div><div><h4>Tyler Sosa</h4><div class="team-role">Lifecycle PM – Intralox &amp; Ambaflex</div><p class="subhead">Leads Intralox and Ambaflex lifecycle plans.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Daryl.png');"></div><div><h4>Daryl Groves</h4><div class="team-role">Lifecycle PM – EU/ROW</div><p class="subhead">Manages lifecycle coverage for Europe and Rest of World assets.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Derrick.png');"></div><div><h4>Derrick Waid</h4><div class="team-role">CRW11 Manager</div><p class="subhead">Leads the central rebuild warehouse team.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Alaina.png');"></div><div><h4>Alaina Arwood</h4><div class="team-role">IMS – CRW11</div><p class="subhead">Keeps site processes aligned and audit-ready.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Cody.png');"></div><div><h4>Cody Steebner</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Executes rebuild kits and QA checks.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Rich.png');"></div><div><h4>Rich Vilvens</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Specializes in sorter component refurbishment.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/David.png');"></div><div><h4>David Willard</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Supports kitting, repair, and outbound staging.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Josh.png');"></div><div><h4>Josh Persons</h4><div class="team-role">Global MHE Central Team Manager</div><p class="subhead">Leadership point for the lifecycle program and global alignment.</p></div></div>
-          <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Krishna.png');"></div><div><h4>Krishna Sankaramanchi</h4><div class="team-role">Business Intelligence Engineer</div><p class="subhead">Built the EOL forecasting model that predicts critical asset timing.</p></div></div>
+        <div class="image-card wide-image" aria-label="EOL predictive model hero image">
+          <img src="assets/Rebuild2.jpg" alt="Technicians performing predictive maintenance" />
+          <p class="subhead">Field execution paired with predictive insights keeps rebuilds on schedule.</p>
         </div>
       </section>
   </div>
