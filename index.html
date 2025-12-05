@@ -92,25 +92,25 @@
 
     .hero-content, .hero-metrics, .hero-logos { position: relative; z-index: 1; }
 
-  .hero-logos {
+.hero-logos {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 18px;
+  right: 24px;
   z-index: 2;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 8px 14px;
-  border-radius: 999px;
+  flex-direction: column;          /* stack logos vertically to shrink width */
+  align-items: flex-end;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
 .hero-logos img {
-  height: 54px;
-  max-width: 180px;
+  height: 40px;                   /* smaller so bubble doesn’t reach center */
+  max-width: 150px;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.45)) contrast(1.05);
 }
