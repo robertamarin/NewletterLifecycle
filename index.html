@@ -92,11 +92,37 @@
 
     .hero-content, .hero-metrics, .hero-logos { position: relative; z-index: 1; }
 
-    .hero-logos { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .hero-logos img { height: 72px; max-width: 240px; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35)); }
+    .hero-logos {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      max-width: 520px;
+      padding: 10px 20px;
+      margin: 0 auto 8px;
+      border-radius: 999px;
+      background: rgba(7, 12, 26, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(6px);
+    }
+    .hero-logos img {
+      height: 80px;
+      max-width: 260px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.7)) brightness(1.15) contrast(1.15);
+    }
 
-    .hero-content { display: flex; flex-direction: column; gap: 12px; justify-content: center; align-items: center; max-width: 640px; }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      max-width: 640px;
+    }
     .hero h1 { font-size: 30px; line-height: 1.2; }
+    .hero-title-main { white-space: nowrap; }
     .hero p { color: var(--muted); font-size: 15px; }
 
     .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
@@ -146,7 +172,7 @@
 
     .savings-layout { align-items: start; }
     .savings-graphic { background: linear-gradient(135deg, rgba(72, 224, 201, 0.14), rgba(127, 200, 255, 0.12)); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); padding: 12px; box-shadow: var(--shadow); display: grid; gap: 10px; }
-    .savings-graphic svg { width: 100%; height: auto; display: block; }
+    .savings-graphic img { width: 100%; border-radius: 10px; display: block; border: 1px solid rgba(255,255,255,0.18); }
 
     .map { background: radial-gradient(circle at 30% 40%, rgba(72,224,201,0.12), transparent 42%), radial-gradient(circle at 70% 60%, rgba(127,200,255,0.12), transparent 36%), #0f1b32; border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); }
     .map-plot { position: relative; margin-top: 10px; min-height: 240px; border-radius: 12px; background: linear-gradient(135deg, rgba(72,224,201,0.08), rgba(127,200,255,0.06)); border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
@@ -220,7 +246,7 @@
           <img src="assets/MHEGlobal.png" alt="RME logo" />
         </div>
         <div class="hero-content">
-          <h1>MHE Reliability – Asset Lifecycle Management<br />
+          <h1><span class="hero-title-main">MHE Reliability – Asset Lifecycle Management</span><br />
             2025 Program Recap</h1>
           <p>We safeguard the most critical sorters in our networks through expert-led rebuilds, major repairs, and lifecycle standards that keep uptime high and unplanned failures off the calendar.</p>
         </div>
@@ -303,60 +329,7 @@
               <span><span class="dot" style="background:var(--accent)"></span>Savings (rounded)</span>
               <span><span class="dot" style="background:var(--intralox)"></span>Rebuild count</span>
             </div>
-            <svg viewBox="0 0 360 220" role="img" aria-label="Stacked bars of portfolio savings and rebuilds">
-              <defs>
-                <linearGradient id="savingsBar" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.9" />
-                  <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.4" />
-                </linearGradient>
-                <linearGradient id="rebuildBar" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stop-color="var(--intralox)" stop-opacity="0.9" />
-                  <stop offset="100%" stop-color="var(--intralox)" stop-opacity="0.4" />
-                </linearGradient>
-              </defs>
-              <g fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1">
-                <line x1="110" y1="40" x2="110" y2="190" />
-                <line x1="200" y1="40" x2="200" y2="190" />
-                <line x1="290" y1="40" x2="290" y2="190" />
-                <line x1="20" y1="190" x2="340" y2="190" />
-              </g>
-              <g font-size="12" fill="var(--muted)">
-                <text x="30" y="208">0</text>
-                <text x="12" y="140">10M</text>
-                <text x="12" y="90">20M</text>
-                <text x="12" y="50">30M</text>
-              </g>
-              <g transform="translate(60,0)">
-                <rect x="20" y="80" width="40" height="110" fill="url(#savingsBar)" rx="8" />
-                <rect x="70" y="110" width="40" height="80" fill="url(#savingsBar)" rx="8" />
-                <rect x="120" y="60" width="40" height="130" fill="url(#savingsBar)" rx="8" />
-                <rect x="170" y="120" width="40" height="70" fill="url(#savingsBar)" rx="8" />
-                <rect x="20" y="60" width="40" height="20" fill="url(#rebuildBar)" opacity="0.9" />
-                <rect x="70" y="70" width="40" height="40" fill="url(#rebuildBar)" opacity="0.9" />
-                <rect x="120" y="30" width="40" height="30" fill="url(#rebuildBar)" opacity="0.9" />
-                <rect x="170" y="90" width="40" height="20" fill="url(#rebuildBar)" opacity="0.9" />
-              </g>
-              <g font-size="12" fill="var(--ink)" font-weight="700">
-                <text x="70" y="205">Dematic</text>
-                <text x="145" y="205">Intellisort</text>
-                <text x="210" y="205">Intralox</text>
-                <text x="275" y="205">EU / ROW</text>
-              </g>
-            </svg>
-            <div class="table-card" aria-label="Table 1 – Completed rebuilds and savings by portfolio">
-              <table>
-                <thead>
-                  <tr><th>Portfolio</th><th>Completed rebuilds</th><th>Actualized savings (USD)</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>Dematic SL2/SL300/SC3</td><td>32</td><td>$18,700,000</td></tr>
-                  <tr><td>Intelligrated Intellisort</td><td>24</td><td>$8,400,000</td></tr>
-                  <tr><td>Intralox S4500/S7000 &amp; Ambaflex</td><td>61</td><td>$21,500,000</td></tr>
-                  <tr><td>EU &amp; ROW programs (Fives, Vanderlande, TGW, VDL, Vanriet)</td><td>18</td><td>$6,500,000</td></tr>
-                  <tr><th>Totals</th><th>135</th><th>$55,100,000</th></tr>
-                </tbody>
-              </table>
-            </div>
+            <img src="assets/Sankey.png" alt="Portfolio savings Sankey diagram" />
           </div>
           <div class="sparkline-card" aria-label="Monthly ribbons">
             <div class="legend">
@@ -385,31 +358,6 @@
               <div class="stat"><div class="label">Peak months</div><div class="value">Aug / Sep</div></div>
               <div class="stat"><div class="label">Average per month</div><div class="value">$4.6M</div></div>
             </div>
-            <details open>
-              <summary class="subhead">Table 2 – Month-by-month rebuilds and savings</summary>
-              <div class="table-card">
-                <table>
-                  <thead>
-                    <tr><th>Month</th><th>Rebuilds completed</th><th>Savings verified (USD)</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>January</td><td>9</td><td>$3,100,000</td></tr>
-                    <tr><td>February</td><td>7</td><td>$2,000,000</td></tr>
-                    <tr><td>March</td><td>11</td><td>$3,600,000</td></tr>
-                    <tr><td>April</td><td>12</td><td>$4,100,000</td></tr>
-                    <tr><td>May</td><td>16</td><td>$6,800,000</td></tr>
-                    <tr><td>June</td><td>14</td><td>$5,200,000</td></tr>
-                    <tr><td>July</td><td>8</td><td>$3,500,000</td></tr>
-                    <tr><td>August</td><td>15</td><td>$7,100,000</td></tr>
-                    <tr><td>September</td><td>17</td><td>$8,200,000</td></tr>
-                    <tr><td>October</td><td>12</td><td>$4,900,000</td></tr>
-                    <tr><td>November</td><td>9</td><td>$3,600,000</td></tr>
-                    <tr><td>December</td><td>5</td><td>$3,000,000</td></tr>
-                    <tr><th>Totals</th><th>135</th><th>$55,100,000</th></tr>
-                  </tbody>
-                </table>
-              </div>
-            </details>
           </div>
         </div>
       </section>
