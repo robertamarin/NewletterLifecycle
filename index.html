@@ -94,26 +94,29 @@
 
 .hero-logos {
   position: absolute;
-  top: 18px;
-  right: 24px;
+  top: 24px;
+  right: 32px;
   z-index: 2;
   display: flex;
-  flex-direction: column;          /* stack logos vertically to shrink width */
-  align-items: flex-end;
-  gap: 6px;
-  padding: 8px 10px;
-  border-radius: 18px;
+  flex-direction: row;             /* keep original side-by-side layout */
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 16px;
+  max-width: 320px;                /* keeps bubble from extending over title */
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
 .hero-logos img {
-  height: 40px;                   /* smaller so bubble doesn’t reach center */
-  max-width: 150px;
+  height: 48px;
+  max-width: 140px;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.45)) contrast(1.05);
 }
+
 
     .hero-content {
       display: flex;
