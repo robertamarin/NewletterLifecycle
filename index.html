@@ -54,21 +54,6 @@
       box-shadow: 0 18px 48px rgba(0, 0, 0, 0.4);
     }
 
-    .brand-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 6px 4px 0 4px;
-    }
-
-    .brand-row img {
-      height: 62px;
-      max-width: 220px;
-      object-fit: contain;
-      filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35));
-    }
-
     .section {
       background: var(--panel);
       border-radius: 14px;
@@ -84,7 +69,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 14px;
-      min-height: 200px;
+      min-height: 240px;
       background: var(--hero-image);
       background-size: cover;
       background-position: center;
@@ -105,14 +90,18 @@
       background: linear-gradient(135deg, rgba(12, 20, 36, 0.6), rgba(12, 20, 36, 0.25));
     }
 
-    .hero-content, .hero-metrics { position: relative; z-index: 1; }
+    .hero-content, .hero-metrics, .hero-logos { position: relative; z-index: 1; }
+
+    .hero-logos { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .hero-logos img { height: 72px; max-width: 240px; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35)); }
 
     .hero-content { display: flex; flex-direction: column; gap: 12px; justify-content: center; align-items: center; max-width: 640px; }
     .hero h1 { font-size: 30px; line-height: 1.2; }
     .hero p { color: var(--muted); font-size: 15px; }
 
     .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-    .tile { background: rgba(0,0,0,0.32); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+    .metrics.metrics-row { grid-template-columns: repeat(5, 1fr); }
+    .tile { background: rgba(0,0,0,0.32); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; text-align: center; }
     .tile .number { font-size: 24px; font-weight: 800; }
     .tile .label { color: var(--muted); font-size: 13px; }
 
@@ -121,7 +110,7 @@
     .metrics-inline { display: flex; gap: 10px; flex-wrap: wrap; justify-content: space-between; align-items: stretch; }
     .metrics-inline .tile { flex: 1 1 140px; }
 
-    .section h2 { color: var(--accent); letter-spacing: 0.02em; font-size: 13px; text-transform: uppercase; }
+    .section h2 { color: var(--ink); letter-spacing: 0; font-size: 18px; text-transform: none; }
 
     .leadline { font-size: 24px; }
     .subhead { color: var(--muted); font-size: 14px; }
@@ -151,10 +140,13 @@
     .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
 
     .asset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
-    .asset-card { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px; display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: center; box-shadow: var(--shadow); }
-    .asset-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(145deg, rgba(72,224,201,0.25), rgba(127,200,255,0.25)); display: inline-flex; align-items: center; justify-content: center; font-weight: 800; color: #0b1221; border: 1px solid rgba(255,255,255,0.16); }
+    .asset-card { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; box-shadow: var(--shadow); }
     .asset-card h4 { margin: 0; font-size: 15px; }
     .asset-card p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .savings-layout { align-items: start; }
+    .savings-graphic { background: linear-gradient(135deg, rgba(72, 224, 201, 0.14), rgba(127, 200, 255, 0.12)); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); padding: 12px; box-shadow: var(--shadow); display: grid; gap: 10px; }
+    .savings-graphic svg { width: 100%; height: auto; display: block; }
 
     .map { background: radial-gradient(circle at 30% 40%, rgba(72,224,201,0.12), transparent 42%), radial-gradient(circle at 70% 60%, rgba(127,200,255,0.12), transparent 36%), #0f1b32; border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); }
     .map-plot { position: relative; margin-top: 10px; min-height: 240px; border-radius: 12px; background: linear-gradient(135deg, rgba(72,224,201,0.08), rgba(127,200,255,0.06)); border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
@@ -222,13 +214,14 @@
 </head>
 <body>
   <div id="report">
-      <div class="brand-row" aria-label="Program logos">
-        <img src="assets/MHE Logo.png" alt="Left brand placeholder" />
-        <img src="assets/RME logo.jpg" alt="Right brand placeholder" />
-      </div>
       <section class="hero" aria-label="Cover with hero image">
+        <div class="hero-logos" aria-label="Program logos">
+          <img src="assets/MHE Logo.png" alt="MHE logo" />
+          <img src="assets/RME logo.jpg" alt="RME logo" />
+        </div>
         <div class="hero-content">
-          <h1>MHE RME Central Team – Asset Lifecycle Management</h1>
+          <h1>MHE Reliability – Asset Lifecycle Management<br />
+            2025 Program Recap</h1>
           <p>We safeguard the most critical sorters in our networks through expert-led rebuilds, major repairs, and lifecycle standards that keep uptime high and unplanned failures off the calendar.</p>
         </div>
       </section>
@@ -238,17 +231,16 @@
           <p>The Lifecycle Management Team and Central Rebuild Warehouse prevent operational failures across the network. Predictive analytics surface failures before they occur, shifting response from reactive to preventive. The Crash Cart program deploys complete repair kits within hours, not days, minimizing downtime. We control large-scale critical-part inventories with precision and rebuild high-value assets to avoid replacement spend. Vendor coordination and rebuild strategy drive multi-million-dollar cost avoidance. When critical equipment stops, we restore network capability fast.</p>
         </div>
         <div class="metrics-inline" aria-label="Program metrics">
-          <div class="tile"><div class="number">$54.3M</div><div class="label">Cost avoidance and verified savings</div></div>
-          <div class="tile"><div class="number">134</div><div class="label">Full sorter rebuilds</div></div>
+          <div class="tile"><div class="number">$55.1M</div><div class="label">Cost avoidance and verified savings</div></div>
+          <div class="tile"><div class="number">135</div><div class="label">Full sorter rebuilds</div></div>
           <div class="tile"><div class="number">14</div><div class="label">Major repairs</div></div>
           <div class="tile"><div class="number">16</div><div class="label">Number of unique assets managed</div></div>
           <div class="tile"><div class="number">83</div><div class="label">Sites supported</div></div>
-          <div class="tile"><div class="number">NA + EU</div><div class="label">Regions covered</div></div>
         </div>
       </section>
 
       <section class="section" aria-label="CRW11 impact">
-        <h2>CRW11 – Central Rebuild Warehouse</h2>
+        <h2>Central Rebuild Warehouse (CRW11)</h2>
         <p>The North American Central Rebuild Warehouse (CRW11) is the network’s reliability engine. Opened in 2024 beside KCVG in Hebron, KY, it operates 30,000 square feet of dedicated rebuild capacity with over 160,000 parts in inventory, supporting ten major asset fleets. A team of one manager, three qualified subject matter experts, and an inventory scheduler runs the site.</p>
         <p>Forty-five job boxes are built and maintained here, each containing every specialized tool, job plan, and component required for major planned rebuilds and rapid recovery events. CRW11 also houses five training sorters enabling Qualified Subject Matter Experts (QSME) development without impacting production.</p>
         <p>In 2025 more than 14,000 components have been rebuilt in-house by this team and over $500K recovered through part salvage from decommissioned equipment. The facility sustains critical assets, compresses downtime, and protects the network from avoidable cost and disruption.</p>
@@ -258,8 +250,7 @@
           <div class="image-card"><img src="assets/crw/CRW2.png" alt="Slat refurbishment" /><p class="subhead">Slat Refurbishment Stations.</p></div>
           <div class="image-card"><img src="assets/crw/CRW4.png" alt="Outbound logistics" /><p class="subhead">Parts and Job Box loaded into truck en route to site.</p></div>
         </div>
-        <div class="metrics" aria-label="CRW11 highlights">
-          <div class="tile"><div class="number">30K sq ft</div><div class="label">Dedicated rebuild capacity</div></div>
+        <div class="metrics metrics-row" aria-label="CRW11 highlights">
           <div class="tile"><div class="number">160K+</div><div class="label">Parts ready in inventory</div></div>
           <div class="tile"><div class="number">45</div><div class="label">Fully built job boxes</div></div>
           <div class="tile"><div class="number">5</div><div class="label">Training sorters on site</div></div>
@@ -272,15 +263,15 @@
         <h2>Assets we oversee</h2>
         <h3 class="leadline">High Consequence Assets Under Our Management</h3>
         <div class="asset-grid">
-          <div class="asset-card"><span class="asset-icon">SL</span><div><h4>Dematic SL2 / SL300 / SC3</h4><p>Tier-1 shoe sorters with full tear-down and recommissioning playbooks.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">IS</span><div><h4>Intelligrated Intellisort</h4><p>Lifecycle coverage for critical Intellisort platforms, including major repairs.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">IX</span><div><h4>Intralox S4500 &amp; S7000</h4><p>High-velocity belt sorters with staged kits and refurbishment standards.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">AM</span><div><h4>Ambaflex</h4><p>Vertical conveyor coverage with reliability guardrails and parts readiness.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">FV</span><div><h4>Fives portfolio</h4><p>Shoe sorters, singulators, and crossbelts under centralized lifecycle management.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">VN</span><div><h4>Vanderlande</h4><p>Crossbelt and shoe sorters covered with rebuild kits and SME oversight.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">TG</span><div><h4>TGW Natrix</h4><p>Natrix shoe sorters included with scoped rebuild and QA processes.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">VD</span><div><h4>VDL family</h4><p>SPO2 and SCS700 lines tracked with lifecycle criteria and reserved components.</p></div></div>
-          <div class="asset-card"><span class="asset-icon">CR</span><div><h4>Central rebuild warehouse kits</h4><p>Standardized kits across all platforms staged through CRW11.</p></div></div>
+          <div class="asset-card"><div><h4>Dematic SL2 / SL300 / SC3 / RS200</h4><p>Tier-1 shoe sorters with full tear-down and recommissioning playbooks.</p></div></div>
+          <div class="asset-card"><div><h4>Intelligrated Intellisort</h4><p>Lifecycle coverage for critical Intellisort platforms, including major repairs.</p></div></div>
+          <div class="asset-card"><div><h4>Intralox S4500 &amp; S7000</h4><p>High-velocity belt sorters with staged kits and refurbishment standards.</p></div></div>
+          <div class="asset-card"><div><h4>Ambaflex</h4><p>Vertical conveyor coverage with reliability guardrails and parts readiness.</p></div></div>
+          <div class="asset-card"><div><h4>Fives portfolio</h4><p>Shoe sorters, singulators, and crossbelts under centralized lifecycle management.</p></div></div>
+          <div class="asset-card"><div><h4>Vanderlande</h4><p>Crossbelt and shoe sorters covered with rebuild kits and SME oversight.</p></div></div>
+          <div class="asset-card"><div><h4>TGW Natrix</h4><p>Natrix shoe sorters included with scoped rebuild and QA processes.</p></div></div>
+          <div class="asset-card"><div><h4>VDL family</h4><p>SPO2 and SCS700 lines tracked with lifecycle criteria and reserved components.</p></div></div>
+          <div class="asset-card"><div><h4>Central rebuild warehouse kits</h4><p>Standardized kits across all platforms staged through CRW11.</p></div></div>
         </div>
         <div class="image-grid" aria-label="High consequence asset photos">
           <div class="image-card">
@@ -298,6 +289,127 @@
           <div class="image-card">
             <img src="assets/RME4.jpg" alt="Upload high consequence asset photo 4" />
             <p class="subhead">Dematic Technical and Quality oversight Managing Rebuilds on Site</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Portfolio savings and trends">
+        <h2>Portfolio savings</h2>
+        <h3 class="leadline">$55.1M verified savings across 135 rebuilds and 14 major repairs</h3>
+        <p class="subhead">High-level view of how the program performed across portfolios. Major repairs are tracked separately to keep rebuild outcomes clear.</p>
+        <div class="two-col savings-layout">
+          <div class="savings-graphic" aria-label="Portfolio savings chart">
+            <div class="legend">
+              <span><span class="dot" style="background:var(--accent)"></span>Savings (rounded)</span>
+              <span><span class="dot" style="background:var(--intralox)"></span>Rebuild count</span>
+            </div>
+            <svg viewBox="0 0 360 220" role="img" aria-label="Stacked bars of portfolio savings and rebuilds">
+              <defs>
+                <linearGradient id="savingsBar" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.4" />
+                </linearGradient>
+                <linearGradient id="rebuildBar" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="var(--intralox)" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="var(--intralox)" stop-opacity="0.4" />
+                </linearGradient>
+              </defs>
+              <g fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1">
+                <line x1="110" y1="40" x2="110" y2="190" />
+                <line x1="200" y1="40" x2="200" y2="190" />
+                <line x1="290" y1="40" x2="290" y2="190" />
+                <line x1="20" y1="190" x2="340" y2="190" />
+              </g>
+              <g font-size="12" fill="var(--muted)">
+                <text x="30" y="208">0</text>
+                <text x="12" y="140">10M</text>
+                <text x="12" y="90">20M</text>
+                <text x="12" y="50">30M</text>
+              </g>
+              <g transform="translate(60,0)">
+                <rect x="20" y="80" width="40" height="110" fill="url(#savingsBar)" rx="8" />
+                <rect x="70" y="110" width="40" height="80" fill="url(#savingsBar)" rx="8" />
+                <rect x="120" y="60" width="40" height="130" fill="url(#savingsBar)" rx="8" />
+                <rect x="170" y="120" width="40" height="70" fill="url(#savingsBar)" rx="8" />
+                <rect x="20" y="60" width="40" height="20" fill="url(#rebuildBar)" opacity="0.9" />
+                <rect x="70" y="70" width="40" height="40" fill="url(#rebuildBar)" opacity="0.9" />
+                <rect x="120" y="30" width="40" height="30" fill="url(#rebuildBar)" opacity="0.9" />
+                <rect x="170" y="90" width="40" height="20" fill="url(#rebuildBar)" opacity="0.9" />
+              </g>
+              <g font-size="12" fill="var(--ink)" font-weight="700">
+                <text x="70" y="205">Dematic</text>
+                <text x="145" y="205">Intellisort</text>
+                <text x="210" y="205">Intralox</text>
+                <text x="275" y="205">EU / ROW</text>
+              </g>
+            </svg>
+            <div class="table-card" aria-label="Table 1 – Completed rebuilds and savings by portfolio">
+              <table>
+                <thead>
+                  <tr><th>Portfolio</th><th>Completed rebuilds</th><th>Actualized savings (USD)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Dematic SL2/SL300/SC3</td><td>32</td><td>$18,700,000</td></tr>
+                  <tr><td>Intelligrated Intellisort</td><td>24</td><td>$8,400,000</td></tr>
+                  <tr><td>Intralox S4500/S7000 &amp; Ambaflex</td><td>61</td><td>$21,500,000</td></tr>
+                  <tr><td>EU &amp; ROW programs (Fives, Vanderlande, TGW, VDL, Vanriet)</td><td>18</td><td>$6,500,000</td></tr>
+                  <tr><th>Totals</th><th>135</th><th>$55,100,000</th></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="sparkline-card" aria-label="Monthly ribbons">
+            <div class="legend">
+              <span><span class="dot" style="background:var(--accent)"></span>Verified savings</span>
+              <span><span class="dot" style="background:var(--intralox)"></span>Rebuild count</span>
+            </div>
+            <div class="sparkline">
+              <svg viewBox="0 0 320 140" role="img" aria-label="Line chart of monthly savings and rebuilds">
+                <defs>
+                  <linearGradient id="savingsFill" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <polyline fill="url(#savingsFill)" stroke="var(--accent)" stroke-width="3" points="0,110 30,102 60,94 90,84 120,50 150,68 180,90 210,44 240,30 270,56 300,90 320,112 320,140 0,140" />
+                <polyline fill="none" stroke="var(--intralox)" stroke-width="2" stroke-dasharray="6 4" points="0,118 30,122 60,110 90,104 120,80 150,90 180,112 210,78 240,66 270,92 300,118 320,132" />
+                <g fill="var(--ink)">
+                  <text x="5" y="20" font-size="11">Aug &amp; Sep peak</text>
+                  <text x="5" y="36" font-size="11">$15.3M across 32 rebuilds</text>
+                </g>
+              </svg>
+            </div>
+            <div class="stat-row">
+              <div class="stat"><div class="label">Total savings</div><div class="value">$55.1M</div></div>
+              <div class="stat"><div class="label">Total rebuilds</div><div class="value">135</div></div>
+              <div class="stat"><div class="label">Peak months</div><div class="value">Aug / Sep</div></div>
+              <div class="stat"><div class="label">Average per month</div><div class="value">$4.6M</div></div>
+            </div>
+            <details open>
+              <summary class="subhead">Table 2 – Month-by-month rebuilds and savings</summary>
+              <div class="table-card">
+                <table>
+                  <thead>
+                    <tr><th>Month</th><th>Rebuilds completed</th><th>Savings verified (USD)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>January</td><td>9</td><td>$3,100,000</td></tr>
+                    <tr><td>February</td><td>7</td><td>$2,000,000</td></tr>
+                    <tr><td>March</td><td>11</td><td>$3,600,000</td></tr>
+                    <tr><td>April</td><td>12</td><td>$4,100,000</td></tr>
+                    <tr><td>May</td><td>16</td><td>$6,800,000</td></tr>
+                    <tr><td>June</td><td>14</td><td>$5,200,000</td></tr>
+                    <tr><td>July</td><td>8</td><td>$3,500,000</td></tr>
+                    <tr><td>August</td><td>15</td><td>$7,100,000</td></tr>
+                    <tr><td>September</td><td>17</td><td>$8,200,000</td></tr>
+                    <tr><td>October</td><td>12</td><td>$4,900,000</td></tr>
+                    <tr><td>November</td><td>9</td><td>$3,600,000</td></tr>
+                    <tr><td>December</td><td>5</td><td>$3,000,000</td></tr>
+                    <tr><th>Totals</th><th>135</th><th>$55,100,000</th></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
           </div>
         </div>
       </section>
@@ -320,106 +432,8 @@
           <div class="callout"><h4>Intralox rebuild engine</h4><p>Stood up a fully functional Intralox rebuild program with a dedicated Lifecycle PM and leveraged bulk ordering discounts that saved $XXX in parts.</p></div>
           <div class="callout"><h4>Independent Intellisort execution</h4><p>Completed 13 full Intellisort rebuilds without Intelligrated support (vs. just 2 in 2024), demonstrating in-house expertise.</p></div>
           <div class="callout"><h4>Dematic SC3 breakthrough</h4><p>Delivered our first Dematic SC3 rebuilds, paving the way to internalize SC3 programs by 2026.</p></div>
-          <div class="callout"><h4>Scale without disruption</h4><p>Finished 134 full rebuilds and 14 major repairs across 83 sites with no delays to operations—adapting to the mid-year directive of no full building shutdowns by creating alternate flow plans.</p></div>
+          <div class="callout"><h4>Scale without disruption</h4><p>Finished 135 full rebuilds and 14 major repairs across 83 sites with no delays to operations—adapting to the mid-year directive of no full building shutdowns by creating alternate flow plans.</p></div>
           <div class="callout"><h4>CRW11 capacity leap</h4><p>Approved a large industrial parts washer for CRW11 to automate slat cleaning and lift throughput while reducing ergonomic strain.</p></div>
-        </div>
-      </section>
-
-      <section class="section" aria-label="Savings by portfolio">
-        <h2>Portfolio savings</h2>
-        <h3 class="leadline">$54.3M verified savings across 134 rebuilds</h3>
-        <p class="subhead">High-level view of how the program performed across portfolios. Major repairs are tracked separately to keep rebuild outcomes clear.</p>
-        <div class="two-col">
-          <div class="chart" aria-label="Portfolio savings and rebuilds">
-            <div class="legend">
-              <span><span class="dot" style="background:var(--accent)"></span>Savings (rounded)</span>
-              <span><span class="dot" style="background:var(--intralox)"></span>Rebuild count</span>
-            </div>
-            <div class="bar-row"><span>Dematic SL2/SL300/SC3</span><div class="bar"><span style="width:35%; background:var(--accent);"></span></div><span>$18.7M</span></div>
-            <div class="bar-row"><span></span><div class="bar"><span style="width:60%; background:var(--intralox);"></span></div><span>32</span></div>
-            <div class="bar-row"><span>Intelligrated Intellisort</span><div class="bar"><span style="width:15%; background:var(--accent);"></span></div><span>$8.4M</span></div>
-            <div class="bar-row"><span></span><div class="bar"><span style="width:50%; background:var(--intralox);"></span></div><span>24</span></div>
-            <div class="bar-row"><span>Intralox + Ambaflex</span><div class="bar"><span style="width:37%; background:var(--accent);"></span></div><span>$20.2M</span></div>
-            <div class="bar-row"><span></span><div class="bar"><span style="width:90%; background:var(--intralox);"></span></div><span>60</span></div>
-            <div class="bar-row"><span>EU / ROW portfolios</span><div class="bar"><span style="width:13%; background:var(--accent);"></span></div><span>$7.0M</span></div>
-            <div class="bar-row"><span></span><div class="bar"><span style="width:30%; background:var(--intralox);"></span></div><span>18</span></div>
-          </div>
-          <div class="table-card" aria-label="Table 1 – Completed rebuilds and savings by portfolio">
-            <table>
-              <thead>
-                <tr><th>Portfolio</th><th>Completed rebuilds</th><th>Actualized savings (USD)</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Dematic SL2/SL300/SC3</td><td>32</td><td>$18,700,000</td></tr>
-                <tr><td>Intelligrated Intellisort</td><td>24</td><td>$8,400,000</td></tr>
-                <tr><td>Intralox S4500/S7000 &amp; Ambaflex</td><td>60</td><td>$20,200,000</td></tr>
-                <tr><td>EU &amp; ROW programs (Fives, Vanderlande, TGW, VDL, Vanriet)</td><td>18</td><td>$7,000,000</td></tr>
-                <tr><th>Totals</th><th>134</th><th>$54,300,000</th></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-label="Monthly savings trends">
-        <h2>Month-by-month savings</h2>
-        <p class="subhead">High-level trend of rebuild activity and verified savings. Peak months show how we staged capacity ahead of demand.</p>
-        <div class="sparkline-card" aria-label="Monthly ribbons">
-          <div class="legend">
-            <span><span class="dot" style="background:var(--accent)"></span>Verified savings</span>
-            <span><span class="dot" style="background:var(--intralox)"></span>Rebuild count</span>
-          </div>
-          <div class="sparkline">
-            <svg viewBox="0 0 320 140" role="img" aria-label="Line chart of monthly savings and rebuilds">
-              <defs>
-                <linearGradient id="savingsFill" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.5" />
-                  <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
-                </linearGradient>
-              </defs>
-              <polyline fill="url(#savingsFill)" stroke="var(--accent)" stroke-width="3" points="0,110 30,102 60,94 90,84 120,50 150,68 180,90 210,44 240,30 270,56 300,90 320,112 320,140 0,140" />
-              <polyline fill="none" stroke="var(--intralox)" stroke-width="2" stroke-dasharray="6 4" points="0,118 30,122 60,110 90,104 120,80 150,90 180,112 210,78 240,66 270,92 300,118 320,132" />
-              <g fill="var(--ink)">
-                <text x="5" y="20" font-size="11">Aug &amp; Sep peak</text>
-                <text x="5" y="36" font-size="11">$15.3M across 32 rebuilds</text>
-              </g>
-            </svg>
-          </div>
-          <div class="stat-row">
-            <div class="stat"><div class="label">Total savings</div><div class="value">$54.3M</div></div>
-            <div class="stat"><div class="label">Total rebuilds</div><div class="value">134</div></div>
-            <div class="stat"><div class="label">Peak months</div><div class="value">Aug / Sep</div></div>
-            <div class="stat"><div class="label">Average per month</div><div class="value">$4.5M</div></div>
-          </div>
-        </div>
-        <details open>
-          <summary class="subhead">Table 2 – Month-by-month rebuilds and savings</summary>
-          <div class="table-card">
-            <table>
-              <thead>
-                <tr><th>Month</th><th>Rebuilds completed</th><th>Savings verified (USD)</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>January</td><td>9</td><td>$3,100,000</td></tr>
-                <tr><td>February</td><td>7</td><td>$2,000,000</td></tr>
-                <tr><td>March</td><td>11</td><td>$3,600,000</td></tr>
-                <tr><td>April</td><td>12</td><td>$4,100,000</td></tr>
-                <tr><td>May</td><td>16</td><td>$6,800,000</td></tr>
-                <tr><td>June</td><td>14</td><td>$5,200,000</td></tr>
-                <tr><td>July</td><td>8</td><td>$3,500,000</td></tr>
-                <tr><td>August</td><td>15</td><td>$7,100,000</td></tr>
-                <tr><td>September</td><td>17</td><td>$8,200,000</td></tr>
-                <tr><td>October</td><td>12</td><td>$4,900,000</td></tr>
-                <tr><td>November</td><td>9</td><td>$3,600,000</td></tr>
-                <tr><td>December</td><td>4</td><td>$2,200,000</td></tr>
-                <tr><th>Totals</th><th>134</th><th>$54,300,000</th></tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-        <div class="callouts">
-          <div class="callout"><h4>Peak months</h4><p>August and September were the biggest months: $7.1M and $8.2M across 32 rebuilds combined.</p></div>
-          <div class="callout"><h4>Readiness</h4><p>Capacity and parts kitting were staged ahead of peak to keep rebuild velocity high without impacting operations.</p></div>
         </div>
       </section>
 
@@ -443,16 +457,16 @@
               <span class="map-point repair" style="top: 46%; left: 54%;"></span>
               <span class="map-point rebuild" style="top: 42%; left: 57%;"></span>
               <span class="map-point rebuild" style="top: 48%; left: 60%;"></span>
-              <span class="map-caption">Illustrative density of 134 rebuilds / 14 repairs</span>
+              <span class="map-caption">Illustrative density of 135 rebuilds / 14 repairs</span>
             </div>
           </div>
           <div class="table-card">
             <table>
               <thead><tr><th>Region</th><th>Sites</th><th>Full rebuilds</th><th>Major repairs</th></tr></thead>
               <tbody>
-                <tr><td>North America</td><td>63</td><td>116</td><td>11</td></tr>
+                <tr><td>North America</td><td>63</td><td>117</td><td>11</td></tr>
                 <tr><td>Europe</td><td>20</td><td>18</td><td>3</td></tr>
-                <tr><th>Total</th><th>83</th><th>134</th><th>14</th></tr>
+                <tr><th>Total</th><th>83</th><th>135</th><th>14</th></tr>
               </tbody>
             </table>
           </div>
