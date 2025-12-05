@@ -111,21 +111,22 @@
 }
 
 .hero-logos img {
-  height: 48px;
-  max-width: 140px;
+  height: 60px;              /* was 48px */
+  max-width: 160px;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.45)) contrast(1.05);
 }
 
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  max-width: 640px;
+  margin-top: 40px;          /* added to move title + text down */
+}
 
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      justify-content: center;
-      align-items: center;
-      max-width: 640px;
-    }
     .hero h1 { font-size: 30px; line-height: 1.2; }
     .hero-title-main { white-space: nowrap; }
     .hero p { color: var(--muted); font-size: 15px; }
