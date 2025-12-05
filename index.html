@@ -88,11 +88,14 @@
       background: var(--hero-image);
       background-size: cover;
       background-position: center;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 28px 22px;
       box-shadow: var(--shadow);
+      text-align: center;
     }
 
     .hero::after {
@@ -104,7 +107,7 @@
 
     .hero-content, .hero-metrics { position: relative; z-index: 1; }
 
-    .hero-content { display: flex; flex-direction: column; gap: 12px; justify-content: center; }
+    .hero-content { display: flex; flex-direction: column; gap: 12px; justify-content: center; align-items: center; max-width: 640px; }
     .hero h1 { font-size: 30px; line-height: 1.2; }
     .hero p { color: var(--muted); font-size: 15px; }
 
@@ -112,6 +115,11 @@
     .tile { background: rgba(0,0,0,0.32); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
     .tile .number { font-size: 24px; font-weight: 800; }
     .tile .label { color: var(--muted); font-size: 13px; }
+
+    .intro-section { display: grid; gap: 12px; }
+    .narrative { background: var(--panel); border-radius: 14px; padding: 16px; box-shadow: var(--shadow); }
+    .metrics-inline { display: flex; gap: 10px; flex-wrap: wrap; justify-content: space-between; align-items: stretch; }
+    .metrics-inline .tile { flex: 1 1 140px; }
 
     .section h2 { color: var(--accent); letter-spacing: 0.02em; font-size: 13px; text-transform: uppercase; }
 
@@ -223,38 +231,40 @@
           <h1>MHE RME Central Team – Asset Lifecycle Management</h1>
           <p>We safeguard the most critical sorters in our networks through expert-led rebuilds, major repairs, and lifecycle standards that keep uptime high and unplanned failures off the calendar.</p>
         </div>
-        <div class="hero-metrics">
-          <div class="metrics">
-            <div class="tile"><div class="number">$54.3M</div><div class="label">Cost avoidance and verified savings</div></div>
-            <div class="tile"><div class="number">134</div><div class="label">Full sorter rebuilds</div></div>
-            <div class="tile"><div class="number">14</div><div class="label">Major repairs</div></div>
-            <div class="tile"><div class="number">16</div><div class="label">Number of unique assets managed</div></div>
-            <div class="tile"><div class="number">83</div><div class="label">Sites supported</div></div>
-            <div class="tile"><div class="number">NA + EU</div><div class="label">Regions covered</div></div>
-          </div>
+      </section>
+
+      <section class="intro-section" aria-label="Lifecycle program narrative">
+        <div class="narrative">
+          <p>The Lifecycle Management Team and Central Rebuild Warehouse prevent operational failures across the network. Predictive analytics surface failures before they occur, shifting response from reactive to preventive. The Crash Cart program deploys complete repair kits within hours, not days, minimizing downtime. We control large-scale critical-part inventories with precision and rebuild high-value assets to avoid replacement spend. Vendor coordination and rebuild strategy drive multi-million-dollar cost avoidance. When critical equipment stops, we restore network capability fast.</p>
+        </div>
+        <div class="metrics-inline" aria-label="Program metrics">
+          <div class="tile"><div class="number">$54.3M</div><div class="label">Cost avoidance and verified savings</div></div>
+          <div class="tile"><div class="number">134</div><div class="label">Full sorter rebuilds</div></div>
+          <div class="tile"><div class="number">14</div><div class="label">Major repairs</div></div>
+          <div class="tile"><div class="number">16</div><div class="label">Number of unique assets managed</div></div>
+          <div class="tile"><div class="number">83</div><div class="label">Sites supported</div></div>
+          <div class="tile"><div class="number">NA + EU</div><div class="label">Regions covered</div></div>
         </div>
       </section>
 
-      <section class="section" aria-label="Who we are and what we do">
-        <h2>Program overview</h2>
-        <h3 class="leadline">Lifecycle leadership for our most critical sorters</h3>
-        <p class="subhead">The Asset Lifecycle program is run by the MHE RME Central Team – a group of rebuild and reliability experts who manage high-impact sorters so they run safely, predictably, and longer than OEM expectations.</p>
-        <div class="three-col">
-          <div class="callout"><h4>What we do</h4><p>Build and execute playbooks for complex sorter rebuilds, coordinate SMEs, kit every part, and commission equipment so networks avoid unplanned failures.</p></div>
-          <div class="callout"><h4>Full rebuild vs. major repair</h4><p>Full rebuilds are complete tear-downs with recommissioning and QA; major repairs surgically stabilize critical subsystems to prevent downtime until the next rebuild window.</p></div>
-          <div class="callout"><h4>Reliability promise</h4><p>Protect throughput, extend asset life, and reduce OEM dependency with standardized methods, vetted parts, and expert oversight.</p></div>
+      <section class="section" aria-label="CRW11 impact">
+        <h2>CRW11 – Central Rebuild Warehouse</h2>
+        <p>The North American Central Rebuild Warehouse (CRW11) is the network’s reliability engine. Opened in 2024 beside KCVG in Hebron, KY, it operates 30,000 square feet of dedicated rebuild capacity with over 160,000 parts in inventory, supporting ten major asset fleets. A team of one manager, three qualified subject matter experts, and an inventory scheduler runs the site.</p>
+        <p>Forty-five job boxes are built and maintained here, each containing every specialized tool, job plan, and component required for major planned rebuilds and rapid recovery events. CRW11 also houses five training sorters enabling Qualified Subject Matter Experts (QSME) development without impacting production.</p>
+        <p>In 2025 more than 14,000 components have been rebuilt in-house by this team and over $500K recovered through part salvage from decommissioned equipment. The facility sustains critical assets, compresses downtime, and protects the network from avoidable cost and disruption.</p>
+        <div class="image-grid" aria-label="CRW11 photo placeholders">
+          <div class="image-card"><img src="assets/crw/CRW1.png" alt="Inbound inspection" /><p class="subhead">Rebuild Job Box Contents.</p></div>
+          <div class="image-card"><img src="assets/crw/CRW3.jpg" alt="Kitting lines" /><p class="subhead">Preparing Job Box Kits for Upcoming Rebuilds.</p></div>
+          <div class="image-card"><img src="assets/crw/CRW2.png" alt="Slat refurbishment" /><p class="subhead">Slat Refurbishment Stations.</p></div>
+          <div class="image-card"><img src="assets/crw/CRW4.png" alt="Outbound logistics" /><p class="subhead">Parts and Job Box loaded into truck en route to site.</p></div>
         </div>
-      </section>
-
-      <section class="section" aria-label="Major wins for 2025">
-        <h2>Major wins</h2>
-        <h3 class="leadline">Proof points that made 2025 exceptional</h3>
-        <div class="callouts">
-          <div class="callout"><h4>Intralox rebuild engine</h4><p>Stood up a fully functional Intralox rebuild program with a dedicated Lifecycle PM and leveraged bulk ordering discounts that saved $XXX in parts.</p></div>
-          <div class="callout"><h4>Independent Intellisort execution</h4><p>Completed 13 full Intellisort rebuilds without Intelligrated support (vs. just 2 in 2024), demonstrating in-house expertise.</p></div>
-          <div class="callout"><h4>Dematic SC3 breakthrough</h4><p>Delivered our first Dematic SC3 rebuilds, paving the way to internalize SC3 programs by 2026.</p></div>
-          <div class="callout"><h4>Scale without disruption</h4><p>Finished 134 full rebuilds and 14 major repairs across 83 sites with no delays to operations—adapting to the mid-year directive of no full building shutdowns by creating alternate flow plans.</p></div>
-          <div class="callout"><h4>CRW11 capacity leap</h4><p>Approved a large industrial parts washer for CRW11 to automate slat cleaning and lift throughput while reducing ergonomic strain.</p></div>
+        <div class="metrics" aria-label="CRW11 highlights">
+          <div class="tile"><div class="number">30K sq ft</div><div class="label">Dedicated rebuild capacity</div></div>
+          <div class="tile"><div class="number">160K+</div><div class="label">Parts ready in inventory</div></div>
+          <div class="tile"><div class="number">45</div><div class="label">Fully built job boxes</div></div>
+          <div class="tile"><div class="number">5</div><div class="label">Training sorters on site</div></div>
+          <div class="tile"><div class="number">14K+</div><div class="label">Components rebuilt in 2025</div></div>
+          <div class="tile"><div class="number">$500K</div><div class="label">Salvage recovered from decomms</div></div>
         </div>
       </section>
 
@@ -289,6 +299,29 @@
             <img src="assets/RME4.jpg" alt="Upload high consequence asset photo 4" />
             <p class="subhead">Dematic Technical and Quality oversight Managing Rebuilds on Site</p>
           </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Who we are and what we do">
+        <h2>Program overview</h2>
+        <h3 class="leadline">Lifecycle leadership for our most critical sorters</h3>
+        <p class="subhead">The Asset Lifecycle program is run by the MHE RME Central Team – a group of rebuild and reliability experts who manage high-impact sorters so they run safely, predictably, and longer than OEM expectations.</p>
+        <div class="three-col">
+          <div class="callout"><h4>What we do</h4><p>Build and execute playbooks for complex sorter rebuilds, coordinate SMEs, kit every part, and commission equipment so networks avoid unplanned failures.</p></div>
+          <div class="callout"><h4>Full rebuild vs. major repair</h4><p>Full rebuilds are complete tear-downs with recommissioning and QA; major repairs surgically stabilize critical subsystems to prevent downtime until the next rebuild window.</p></div>
+          <div class="callout"><h4>Reliability promise</h4><p>Protect throughput, extend asset life, and reduce OEM dependency with standardized methods, vetted parts, and expert oversight.</p></div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Major wins for 2025">
+        <h2>Major wins</h2>
+        <h3 class="leadline">Proof points that made 2025 exceptional</h3>
+        <div class="callouts">
+          <div class="callout"><h4>Intralox rebuild engine</h4><p>Stood up a fully functional Intralox rebuild program with a dedicated Lifecycle PM and leveraged bulk ordering discounts that saved $XXX in parts.</p></div>
+          <div class="callout"><h4>Independent Intellisort execution</h4><p>Completed 13 full Intellisort rebuilds without Intelligrated support (vs. just 2 in 2024), demonstrating in-house expertise.</p></div>
+          <div class="callout"><h4>Dematic SC3 breakthrough</h4><p>Delivered our first Dematic SC3 rebuilds, paving the way to internalize SC3 programs by 2026.</p></div>
+          <div class="callout"><h4>Scale without disruption</h4><p>Finished 134 full rebuilds and 14 major repairs across 83 sites with no delays to operations—adapting to the mid-year directive of no full building shutdowns by creating alternate flow plans.</p></div>
+          <div class="callout"><h4>CRW11 capacity leap</h4><p>Approved a large industrial parts washer for CRW11 to automate slat cleaning and lift throughput while reducing ergonomic strain.</p></div>
         </div>
       </section>
 
@@ -387,51 +420,6 @@
         <div class="callouts">
           <div class="callout"><h4>Peak months</h4><p>August and September were the biggest months: $7.1M and $8.2M across 32 rebuilds combined.</p></div>
           <div class="callout"><h4>Readiness</h4><p>Capacity and parts kitting were staged ahead of peak to keep rebuild velocity high without impacting operations.</p></div>
-        </div>
-      </section>
-
-      <section class="section" aria-label="CRW11 impact">
-        <h2>CRW11 – Central Rebuild Warehouse</h2>
-        <p>CRW11 is the hub for bulk purchasing, storage, refurbishment, and kitting. We prep thousands of components, QA every kit, and stage logistics so sites can execute rebuilds quickly.</p>
-        <ul>
-          <li>Refurbishes Dematic and Intelligrated slats; Ambaflex and Intralox components are staged for high-velocity shipping.</li>
-          <li>Industrial washer investment planned to increase weekly capacity from ~384 to 1,600+ slats.</li>
-          <li>AAA/AAB quality tiers cataloged so sites can reserve kits ahead of critical uptime windows.</li>
-        </ul>
-        <div class="two-col">
-          <div class="sparkline-card" aria-label="CRW11 contribution visualization">
-            <div class="legend"><span><span class="dot" style="background:var(--accent)"></span>Category savings</span></div>
-            <div class="bar-stack">
-              <div class="bar-card"><div class="bar-label">SME development equipment</div><div class="bar"><span style="width:78%;"></span></div><div class="value">$1.1M</div></div>
-              <div class="bar-card"><div class="bar-label">Spare parts from decommissioning</div><div class="bar"><span style="width:52%;"></span></div><div class="value">$0.5M</div></div>
-              <div class="bar-card"><div class="bar-label">Building development</div><div class="bar"><span style="width:32%;"></span></div><div class="value">$0.2M</div></div>
-              <div class="bar-card"><div class="bar-label">Intellisort slat refurbishment</div><div class="bar"><span style="width:18%;"></span></div><div class="value">$0.08M</div></div>
-              <div class="bar-card"><div class="bar-label">IX belt rebuilds</div><div class="bar"><span style="width:10%;"></span></div><div class="value">$0.04M</div></div>
-              <div class="bar-card"><div class="bar-label">Obsolete spares</div><div class="bar"><span style="width:9%;"></span></div><div class="value">$0.03M</div></div>
-              <div class="bar-card"><div class="bar-label">Recycle materials</div><div class="bar"><span style="width:6%;"></span></div><div class="value">$0.01M</div></div>
-            </div>
-          </div>
-          <div class="table-card" aria-label="CRW11 unique savings table">
-            <table>
-              <thead><tr><th>Savings category</th><th>Total savings (USD)</th></tr></thead>
-              <tbody>
-                <tr><td>IX belt rebuilds</td><td>$37,800</td></tr>
-                <tr><td>Intellisort slat refurbishment</td><td>$79,288</td></tr>
-                <tr><td>Obsolete spares</td><td>$31,395</td></tr>
-                <tr><td>Spare parts from decommissioning</td><td>$506,588</td></tr>
-                <tr><td>Building development savings</td><td>$221,743</td></tr>
-                <tr><td>SME development equipment savings</td><td>$1,079,055</td></tr>
-                <tr><td>Recycle materials</td><td>$9,691</td></tr>
-                <tr><th>Total CRW11 unique savings</th><th>$1,965,560</th></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="image-grid" aria-label="CRW11 photo placeholders">
-          <div class="image-card"><img src="assets/crw/CRW1.png" alt="Inbound inspection" /><p class="subhead">Rebuild Job Box Contents.</p></div>
-          <div class="image-card"><img src="assets/crw/CRW3.jpg" alt="Kitting lines" /><p class="subhead">Preparaing Job Box Kits for Upcoming Rebuilds.</p></div>
-          <div class="image-card"><img src="assets/crw/CRW2.png" alt="Slat refurbishment" /><p class="subhead">Slat Refurbishment Stations.</p></div>
-          <div class="image-card"><img src="assets/crw/CRW4.png" alt="Outbound logistics" /><p class="subhead">Parts and Job Box loaded into truck en route to site.</p></div>
         </div>
       </section>
 
