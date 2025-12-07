@@ -201,6 +201,10 @@
     .button { padding: 12px 16px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--intelligrated)); color: #0b1221; font-weight: 700; text-decoration: none; border: none; cursor: pointer; }
     .secondary { background: rgba(255,255,255,0.12); color: #e7eef8; border: 1px solid rgba(255,255,255,0.18); }
 
+    .footnotes { color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .footnotes ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .footnote-ref { color: var(--accent); font-weight: 700; font-size: 11px; vertical-align: super; }
+
     .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
     .image-card { background: var(--card); border-radius: 12px; padding: 10px; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 8px; }
     .image-placeholder { height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(127,200,255,0.25), rgba(72,224,201,0.25)); border: 1px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: #0b1221; font-weight: 700; }
@@ -263,7 +267,7 @@
 
       <section class="intro-section" aria-label="Lifecycle program narrative">
         <div class="narrative">
-          <p>The Lifecycle Management Team and Central Rebuild Warehouse prevent operational failures across the network. Predictive analytics surface failures before they occur, shifting response from reactive to proactive. The Crash Cart program deploys complete repair kits within hours, not days, minimizing downtime. We control large-scale critical-part inventories with precision and rebuild high-value assets in-house to avoid replacement spend. We coordinate vendor part procurement while keeping rebuild ownership internal, and our strategy drives multi-million-dollar cost avoidance. When critical equipment stops, we restore network capability fast.</p>
+          <p>The Lifecycle Management Team and Central Rebuild Warehouse prevent operational failures across the network. Predictive analytics surface failures before they occur, shifting response from reactive to proactive<sup class="footnote-ref">[2]</sup>. The Crash Cart program deploys complete repair kits within hours, not days, minimizing downtime. We control large-scale critical-part inventories with precision and rebuild high-value assets in-house to avoid replacement spend. We coordinate vendor part procurement while keeping rebuild ownership internal, and our strategy drives multi-million-dollar cost avoidance. When critical equipment stops, we restore network capability fast.</p>
         </div>
         <div class="metrics-inline" aria-label="Program metrics">
           <div class="tile"><div class="number">$55.1M</div><div class="label">Cost avoidance and verified savings</div></div>
@@ -368,21 +372,12 @@
       <section class="section" aria-label="Major accomplishments for 2025">
         <h3 class="leadline">Major Accomplishments of 2025</h3>
         <div class="callouts">
-          <div class="callout"><h4>Keep buildings online</h4><p>Stopped needing full building shutdowns for over 80% of rebuilds by designing alternate process flows, enabling equipment to be taken down and rebuilt while keeping operations live.</p></div>
+          <div class="callout"><h4>EU rebuild leadership</h4><p>Established a dedicated manager for all EU rebuilds to globalize standards, align best practices, and accelerate the opening of a dedicated central rebuild warehouse in Europe.</p></div>
           <div class="callout"><h4>Intralox rebuild engine</h4><p>Stood up a fully functional Intralox rebuild program with a dedicated Lifecycle PM and leveraged bulk ordering discounts that saved $8.6M in parts.</p></div>
           <div class="callout"><h4>Independent Intellisort execution</h4><p>Completed 13 full Intellisort rebuilds without Intelligrated support (vs. just 2 in 2024), demonstrating in-house expertise.</p></div>
           <div class="callout"><h4>Dematic SC3 breakthrough</h4><p>Delivered our first Dematic SC3 rebuilds, paving the way to internalize SC3 programs by 2026.</p></div>
-          <div class="callout"><h4>Scale without disruption</h4><p>Finished 135 full rebuilds and 14 major repairs across 83 sites with no delays to operations—adapting to the mid-year directive of no full building shutdowns by creating alternate flow plans.</p></div>
+          <div class="callout"><h4>Scale without disruption<sup class="footnote-ref">[1]</sup></h4><p>Finished 135 full rebuilds and 14 major repairs across 83 sites with no delays to operations—adapting to the mid-year directive of no full building shutdowns by creating alternate flow plans.</p></div>
           <div class="callout"><h4>CRW11 capacity leap</h4><p>Approved a large industrial parts washer for CRW11 to automate slat cleaning and lift throughput while reducing ergonomic strain.</p></div>
-        </div>
-        <div class="reliability-team">
-          <h4>Reliability Engineers</h4>
-          <p class="subhead">Reliability Engineers define and uphold the standards that make every rebuild successful. They are the first line of technical escalation when sites encounter issues and hold deep expertise across critical asset fleets. They establish the thresholds we track, design and maintain rebuild job plans, and validate every asset selected for a rebuild. They develop and deliver QSME training that equips technicians to serve as on-site technical and quality owners during execution. They operate as core partners to the Asset Lifecycle Program and Central Rebuild Warehouse, ensuring programs function with precision. Recognition is owed to this team for enabling the entire operation.</p>
-          <div class="image-grid" aria-label="Reliability engineer highlights">
-            <div class="image-card"><img src="assets/hca-placeholder-1.svg" alt="Reliability engineer reviewing rebuild standards" /><p class="subhead">Standards and thresholds defined for every rebuild.</p></div>
-            <div class="image-card"><img src="assets/hca-placeholder-2.svg" alt="Reliability engineer supporting onsite execution" /><p class="subhead">On-site technical escalation and QSME support.</p></div>
-            <div class="image-card"><img src="assets/hca-placeholder-3.svg" alt="Reliability engineer collaborating with rebuild teams" /><p class="subhead">Partnering with CRW11 to keep programs precise.</p></div>
-          </div>
         </div>
         <div class="image-grid" aria-label="Major accomplishments visuals">
           <div class="image-card"><img src="assets/Rebuild1.png" alt="Technicians rebuild team at BCN1" /><p class="subhead">Technicians rebuild team at BCN1.</p></div>
@@ -392,7 +387,17 @@
         </div>
       </section>
 
-      <section class="section" aria-label="EOL predictive model">
+      <section class="section" aria-label="Reliability engineer spotlight">
+        <h2>Reliability Engineers</h2>
+        <p class="subhead">Reliability Engineers define and uphold the standards that make every rebuild successful. They are the first line of technical escalation when sites encounter issues and hold deep expertise across critical asset fleets. They establish the thresholds we track, design and maintain rebuild job plans, and validate every asset selected for a rebuild. They develop and deliver QSME training that equips technicians to serve as on-site technical and quality owners during execution. They operate as core partners to the Asset Lifecycle Program and Central Rebuild Warehouse, ensuring programs function with precision. Recognition is owed to this team for enabling the entire operation.</p>
+        <div class="image-grid" aria-label="Reliability engineer highlights">
+          <div class="image-card"><img src="assets/hca-placeholder-1.svg" alt="Reliability engineer reviewing rebuild standards" /><p class="subhead">Standards and thresholds defined for every rebuild.</p></div>
+          <div class="image-card"><img src="assets/hca-placeholder-2.svg" alt="Reliability engineer supporting onsite execution" /><p class="subhead">On-site technical escalation and QSME support.</p></div>
+          <div class="image-card"><img src="assets/hca-placeholder-3.svg" alt="Reliability engineer collaborating with rebuild teams" /><p class="subhead">Partnering with CRW11 to keep programs precise.</p></div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="EOL predictive model" id="predictive-model">
         <h2>EOL Predictive Model</h2>
         <div class="two-col" style="align-items:center; gap:16px;">
           <div class="image-card eol-visual" style="height:100%;">
@@ -446,6 +451,16 @@
           <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/David.png');"></div><div><h4>David Willard</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Supports kitting, repair, and outbound staging.</p></div></div>
           <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Josh.png');"></div><div><h4>Josh Persons</h4><div class="team-role">Global MHE Central Team Manager</div><p class="subhead">Leadership point for the lifecycle program and global alignment.</p></div></div>
           <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Krishna.png');"></div><div><h4>Krishna Sankaramanchi</h4><div class="team-role">Business Intelligence Engineer</div><p class="subhead">Built the EOL forecasting model that predicts critical asset timing.</p></div></div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Footnotes">
+        <h3 class="leadline">Footnotes</h3>
+        <div class="footnotes">
+          <ol>
+            <li id="footnote-1">Shutdown flowchart for keeping buildings online during rebuilds.</li>
+            <li id="footnote-2">Prediction model reference: <a href="#predictive-model">EOL Predictive Model</a>.</li>
+          </ol>
         </div>
       </section>
   </div>
