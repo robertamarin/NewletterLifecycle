@@ -210,28 +210,32 @@
 .image-grid.reliability-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 0.75rem; /* adjust if you want more/less space */
+  gap: 0.75rem;
 }
 
-/* Make the card clip the image */
+/* Let the card grow and stop clipping the image */
 .image-grid.reliability-grid .image-card {
-  overflow: hidden;        /* stops the photo from spilling past rounded corners */
+  overflow: visible;           /* undo the hidden */
   padding: 0.5rem 0.75rem 0.75rem;
 }
 
-/* Force images to sit cleanly inside the card */
+/* Let the image use the available height without cropping */
 .image-grid.reliability-grid .image-card img {
   display: block;
-  width: 100%;             /* fill card width */
-  height: auto;            /* maintain aspect ratio */
-  border-radius: 0;        /* let the card control the rounding */
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: none;            /* override any earlier max-height:150px etc */
+  margin: 0 auto;
+  border-radius: 0.75rem;      /* match your card rounding if needed */
 }
 
-/* Optional: slightly smaller caption text */
+/* Keep captions compact */
 .image-grid.reliability-grid .subhead {
   font-size: 0.8rem;
   line-height: 1.25;
 }
+
 
 
     .image-card { background: var(--card); border-radius: 12px; padding: 10px; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 8px; }
