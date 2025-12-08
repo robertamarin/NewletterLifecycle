@@ -206,27 +206,33 @@
     .footnote-ref { color: inherit; font-weight: 700; font-size: 11px; vertical-align: super; }
 
     .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+/* Keep 7 in one row */
 .image-grid.reliability-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr)); /* keeps 1 row */
-  gap: 0.5rem;                                      /* less space between cards */
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.75rem; /* adjust if you want more/less space */
 }
 
+/* Make the card clip the image */
 .image-grid.reliability-grid .image-card {
-  padding: 0.5rem 0.75rem;                          /* less padding inside */
+  overflow: hidden;        /* stops the photo from spilling past rounded corners */
+  padding: 0.5rem 0.75rem 0.75rem;
 }
 
+/* Force images to sit cleanly inside the card */
+.image-grid.reliability-grid .image-card img {
+  display: block;
+  width: 100%;             /* fill card width */
+  height: auto;            /* maintain aspect ratio */
+  border-radius: 0;        /* let the card control the rounding */
+}
+
+/* Optional: slightly smaller caption text */
 .image-grid.reliability-grid .subhead {
-  font-size: 0.8rem;                                /* smaller text */
+  font-size: 0.8rem;
   line-height: 1.25;
 }
 
-.image-grid.reliability-grid img {
-  max-height: 150px;                                /* slightly smaller photos */
-  width: auto;
-  display: block;
-  margin: 0 auto;
-}
 
     .image-card { background: var(--card); border-radius: 12px; padding: 10px; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 8px; }
     .image-placeholder { height: 120px; border-radius: 10px; background: linear-gradient(135deg, rgba(127,200,255,0.25), rgba(72,224,201,0.25)); border: 1px dashed rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: #0b1221; font-weight: 700; }
