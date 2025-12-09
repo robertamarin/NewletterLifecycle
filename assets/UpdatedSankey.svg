@@ -1,0 +1,108 @@
+<svg height="600" width="600" xmlns="http://www.w3.org/2000/svg">
+<title>Your Diagram Title</title>
+<!-- Generated with SankeyMATIC: 12/9/2025, 9:57:00 AM -->
+<g transform="translate(121.7,18)">
+<g id="sankey_flows">
+<path id="flow19" d="M190.70833 144.72976C274.06249 144.72976 274.06249 176.07101 357.41665 176.07101" fill="none" stroke-width="156.48874" stroke="#057" opacity="0.45"><title>Internalized Labor → Total Savings: 30.35</title></path>
+<path id="flow20" d="M190.70833 307.36694C274.06249 307.36694 274.06249 297.0082 357.41665 297.0082" fill="none" stroke-width="85.38562" stroke="#057" opacity="0.45"><title>Component Refurbishment → Total Savings: 16.56</title></path>
+<path id="flow0" d="M12 145.77426C95.35416 145.77426 95.35416 130.49882 178.70833 130.49882" fill="none" stroke-width="52.33479" stroke="#e377c2" opacity="0.45"><title>Dematic SL2 → Internalized Labor: 10.15</title></path>
+<path id="flow11" d="M12 298.82102C95.35416 298.82102 95.35416 181.41567 178.70833 181.41567" fill="none" stroke-width="49.49891" stroke="#2ca02c" opacity="0.45"><title>Intralox → Internalized Labor: 9.60</title></path>
+<path id="flow12" d="M12 345.66452C95.35416 345.66452 95.35416 321.98459 178.70833 321.98459" fill="none" stroke-width="44.18809" stroke="#2ca02c" opacity="0.45"><title>Intralox → Component Refurbishment: 8.57</title></path>
+<path id="flow8" d="M12 53.6988C95.35416 53.6988 95.35416 85.38263 178.70833 85.38263" fill="none" stroke-width="37.8976" stroke="#ff7f0e" opacity="0.45"><title>Intelligrated → Internalized Labor: 7.35</title></path>
+<path id="flow21" d="M190.70833 453.59446C274.06249 453.59446 274.06249 359.83572 357.41665 359.83572" fill="none" stroke-width="35.93827" stroke="#057" opacity="0.45"><title>Kitting → Total Savings: 6.97</title></path>
+<path id="flow1" d="M12 189.54985C95.35416 189.54985 95.35416 282.28233 178.70833 282.28233" fill="none" stroke-width="35.21641" stroke="#e377c2" opacity="0.45"><title>Dematic SL2 → Component Refurbishment: 6.83</title></path>
+<path id="flow2" d="M12 220.38355C95.35416 220.38355 95.35416 452.04762 178.70833 452.04762" fill="none" stroke-width="23.97603" stroke="#e377c2" opacity="0.45"><title>Dematic SL2 → Kitting: 4.65</title></path>
+<path id="flow14" d="M12 418.27556C95.35416 418.27556 95.35416 209.51661 178.70833 209.51661" fill="none" stroke-width="6.70298" stroke="#d62728" opacity="0.45"><title>EU → Internalized Labor: 1.30</title></path>
+<path id="flow16" d="M12 519.87672C95.35416 519.87672 95.35416 220.18981 178.70833 220.18981" fill="none" stroke-width="5.56863" stroke="#9467bd" opacity="0.45"><title>CRW Unique → Internalized Labor: 1.08</title></path>
+<path id="flow13" d="M12 370.49132C95.35416 370.49132 95.35416 466.76839 178.70833 466.76839" fill="none" stroke-width="5.4655" stroke="#2ca02c" opacity="0.45"><title>Intralox → Kitting: 1.06</title></path>
+<path id="flow4" d="M12 466.62698C95.35416 466.62698 95.35416 215.1368 178.70833 215.1368" fill="none" stroke-width="4.5374" stroke="#e377c2" opacity="0.45"><title>Dematic SL300 → Internalized Labor: 0.88</title></path>
+<path id="flow9" d="M12 75.68972C95.35416 75.68972 95.35416 437.84247 178.70833 437.84247" fill="none" stroke-width="4.43428" stroke="#ff7f0e" opacity="0.45"><title>Intelligrated → Kitting: 0.86</title></path>
+<path id="flow5" d="M12 471.06126C95.35416 471.06126 95.35416 347.27544 178.70833 347.27544" fill="none" stroke-width="4.33115" stroke="#e377c2" opacity="0.45"><title>Dematic SL300 → Component Refurbishment: 0.84</title></path>
+<path id="flow18" d="M12 525.26489C95.35416 525.26489 95.35416 515.24871 178.70833 515.24871" fill="none" stroke-width="3.97023" stroke="#9467bd" opacity="0.45"><title>CRW Unique → Other: 0.77</title></path>
+<path id="flow23" d="M190.70833 515.24871C274.06249 515.24871 274.06249 379.78997 357.41665 379.78997" fill="none" stroke-width="3.97023" stroke="#057" opacity="0.45"><title>Other → Total Savings: 0.77</title></path>
+<path id="flow22" d="M190.70833 392.84254C274.06249 392.84254 274.06249 340.78379 357.41665 340.78379" fill="none" stroke-width="2.16558" stroke="#057" opacity="0.45"><title>Tooling → Total Savings: 0.42</title></path>
+<path id="flow6" d="M12 474.36118C95.35416 474.36118 95.35416 470.53237 178.70833 470.53237" fill="none" stroke-width="2.06245" stroke="#e377c2" opacity="0.45"><title>Dematic SL300 → Kitting: 0.40</title></path>
+<path id="flow3" d="M12 207.7768C95.35416 207.7768 95.35416 393.20347 178.70833 393.20347" fill="none" stroke-width="1.23747" stroke="#e377c2" opacity="0.45"><title>Dematic SL2 → Tooling: 0.24</title></path>
+<path id="flow15" d="M12 422.14267C95.35416 422.14267 95.35416 344.59424 178.70833 344.59424" fill="none" stroke-width="1.03123" stroke="#d62728" opacity="0.45"><title>EU → Component Refurbishment: 0.20</title></path>
+<path id="flow10" d="M12 73.06009C95.35416 73.06009 95.35416 392.17224 178.70833 392.17224" fill="none" stroke-width="1" stroke="#ff7f0e" opacity="0.45"><title>Intelligrated → Tooling: 0.16</title></path>
+<path id="flow17" d="M12 522.97041C95.35416 522.97041 95.35416 349.75038 178.70833 349.75038" fill="none" stroke-width="1" stroke="#9467bd" opacity="0.45"><title>CRW Unique → Component Refurbishment: 0.12</title></path>
+<path id="flow7" d="M12 473.2784C95.35416 473.2784 95.35416 393.87377 178.70833 393.87377" fill="none" stroke-width="1" stroke="#e377c2" opacity="0.45"><title>Dematic SL300 → Tooling: 0.02</title></path>
+</g>
+<g id="sankey_nodes">
+<g class="node" style="touch-action: none;">
+<rect id="r0" class="for_r0" x="0" y="119.60686" height="112.76471" width="12" fill="#e377c2" fill-opacity="1"><title>Dematic SL2:
+21.87</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r1" class="for_r1" x="178.70833" y="66.43382" height="156.54031" width="12" fill="#7f7f7f" fill-opacity="1"><title>Internalized Labor:
+30.36</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r2" class="for_r2" x="178.70833" y="264.67413" height="85.38562" width="12" fill="#bcbd22" fill-opacity="1"><title>Component Refurbishment:
+16.56</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r3" class="for_r3" x="178.70833" y="435.62533" height="35.93827" width="12" fill="#17becf" fill-opacity="1"><title>Kitting:
+6.97</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r4" class="for_r4" x="178.70833" y="391.75975" height="2.16558" width="12" fill="#1f77b4" fill-opacity="1"><title>Tooling:
+0.42</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r5" class="for_r5" x="0" y="464.35828" height="11.03413" width="12" fill="#e377c2" fill-opacity="1"><title>Dematic SL300:
+2.14</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r6" class="for_r6" x="0" y="34.75" height="43.15686" width="12" fill="#ff7f0e" fill-opacity="1"><title>Intelligrated:
+8.37</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r7" class="for_r7" x="0" y="274.07157" height="99.15251" width="12" fill="#2ca02c" fill-opacity="1"><title>Intralox:
+19.23</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r8" class="for_r8" x="0" y="414.92407" height="7.7342" width="12" fill="#d62728" fill-opacity="1"><title>EU:
+1.50</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r9" class="for_r9" x="0" y="517.09241" height="10.15759" width="12" fill="#9467bd" fill-opacity="1"><title>CRW Unique:
+1.97</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r10" class="for_r10" x="178.70833" y="513.2636" height="3.97023" width="12" fill="#8c564b" fill-opacity="1"><title>Other:
+0.77</title></rect>
+</g>
+<g class="node" style="touch-action: none;">
+<rect id="r11" class="for_r11" x="357.41665" y="97.82664" height="283.94844" width="12" fill="#057" fill-opacity="1"><title>Total Savings:
+55.07</title></rect>
+</g>
+</g>
+<g id="sankey_labels" font-family="sans-serif" font-size="16px" fill="#000000">
+<text text-anchor="middle" x="178.3" y="577" font-size="12px" font-weight="400" fill="#336781">Made at SankeyMATIC.com</text>
+<rect id="label0_bg" class="for_r0" x="-93.66667" y="154.02923" width="91.80001" height="42.71999" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label0" class="for_r0" text-anchor="end" x="-6.53333" y="175.98922" font-weight="400" font-size="14.4px" dy="-4.56">Dematic SL2<tspan x="-6.53333" dy="19.32" font-weight="400" font-size="17.6px">21.87</tspan></text>
+<rect id="label1_bg" class="for_r1" x="122.35833" y="122.74398" width="124.7" height="42.71999" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label1" class="for_r1" text-anchor="middle" x="184.70833" y="144.70398" font-weight="400" font-size="14.4px" dy="-4.56">Internalized Labor<tspan x="184.70833" dy="19.32" font-weight="400" font-size="17.6px">30.36</tspan></text>
+<rect id="label2_bg" class="for_r2" x="93.94166" y="285.40695" width="181.53331" height="42.72001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label2" class="for_r2" text-anchor="middle" x="184.70833" y="307.36694" font-weight="400" font-size="14.4px" dy="-4.56">Component Refurbishment<tspan x="184.70833" dy="19.32" font-weight="400" font-size="17.6px">16.56</tspan></text>
+<rect id="label3_bg" class="for_r3" x="160.025" y="431.63445" width="49.36667" height="42.72001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label3" class="for_r3" text-anchor="middle" x="184.70833" y="453.59446" font-weight="400" font-size="14.4px" dy="-4.56">Kitting<tspan x="184.70833" dy="19.32" font-weight="400" font-size="17.6px">6.97</tspan></text>
+<rect id="label4_bg" class="for_r4" x="157.20833" y="370.88253" width="55" height="42.72001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label4" class="for_r4" text-anchor="middle" x="184.70833" y="392.84254" font-weight="400" font-size="14.4px" dy="-4.56">Tooling<tspan x="184.70833" dy="19.32" font-weight="400" font-size="17.6px">0.42</tspan></text>
+<rect id="label5_bg" class="for_r5" x="-109.7" y="447.91534" width="107.83333" height="42.72001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label5" class="for_r5" text-anchor="end" x="-6.53333" y="469.87534" font-weight="400" font-size="14.4px" dy="-4.56">Dematic SL300<tspan x="-6.53333" dy="19.32" font-weight="400" font-size="17.6px">2.14</tspan></text>
+<rect id="label6_bg" class="for_r6" x="-85.7" y="34.36843" width="83.83333" height="42.72" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label6" class="for_r6" text-anchor="end" x="-6.53333" y="56.32843" font-weight="400" font-size="14.4px" dy="-4.56">Intelligrated<tspan x="-6.53333" dy="19.32" font-weight="400" font-size="17.6px">8.37</tspan></text>
+<rect id="label7_bg" class="for_r7" x="-58.45" y="301.68783" width="56.58333" height="42.72001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label7" class="for_r7" text-anchor="end" x="-6.53333" y="323.64782" font-weight="400" font-size="14.4px" dy="-4.56">Intralox<tspan x="-6.53333" dy="19.32" font-weight="400" font-size="17.6px">19.23</tspan></text>
+<rect id="label8_bg" class="for_r8" x="-45.43333" y="396.83117" width="43.56667" height="42.72001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label8" class="for_r8" text-anchor="end" x="-6.53333" y="418.79118" font-weight="400" font-size="14.4px" dy="-4.56">EU<tspan x="-6.53333" dy="19.32" font-weight="400" font-size="17.6px">1.50</tspan></text>
+<rect id="label9_bg" class="for_r9" x="-94.98333" y="500.21121" width="93.11667" height="42.72001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label9" class="for_r9" text-anchor="end" x="-6.53333" y="522.17121" font-weight="400" font-size="14.4px" dy="-4.56">CRW Unique<tspan x="-6.53333" dy="19.32" font-weight="400" font-size="17.6px">1.97</tspan></text>
+<rect id="label10_bg" class="for_r10" x="162.025" y="493.28872" width="45.36667" height="42.72001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label10" class="for_r10" text-anchor="middle" x="184.70833" y="515.24871" font-weight="400" font-size="14.4px" dy="-4.56">Other<tspan x="184.70833" dy="19.32" font-weight="400" font-size="17.6px">0.77</tspan></text>
+<rect id="label11_bg" class="for_r11" x="371.28332" y="217.84086" width="95.01665" height="42.71999" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label11" class="for_r11" text-anchor="start" x="375.94998" y="239.80086" font-weight="400" font-size="14.4px" dy="-4.56">Total Savings<tspan x="375.94998" dy="19.32" font-weight="400" font-size="17.6px">55.07</tspan></text>
+</g>
+</g></svg>
