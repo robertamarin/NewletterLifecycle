@@ -198,6 +198,44 @@
     .quote { background: var(--panel); border-left: 3px solid var(--intralox); padding: 10px 12px; border-radius: 12px; color: #ffe8c8; }
 
     .button-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cta-panel {
+      background: linear-gradient(120deg, rgba(72, 224, 201, 0.12), rgba(127, 200, 255, 0.12));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+    .cta-header { display: grid; gap: 6px; }
+    .cta-list { display: grid; gap: 8px; grid-template-columns: 1fr; }
+    .cta-button {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--intelligrated));
+      color: #0b1221;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    .cta-button .cta-label { display: flex; flex-direction: column; gap: 2px; }
+    .cta-button small { color: rgba(11, 18, 33, 0.8); font-weight: 600; }
+    .cta-button .arrow { font-size: 14px; }
+    .cta-button:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4); }
+    .cta-button.secondary {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #e7eef8;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    }
+    .cta-button.secondary small { color: rgba(231, 238, 248, 0.8); }
     .button { padding: 12px 16px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--intelligrated)); color: #0b1221; font-weight: 700; text-decoration: none; border: none; cursor: pointer; }
     .secondary { background: rgba(255,255,255,0.12); color: #e7eef8; border: 1px solid rgba(255,255,255,0.18); }
 
@@ -527,6 +565,53 @@
           <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/David.png');"></div><div><h4>David Willard</h4><div class="team-role">CRW11 Technician</div><p class="subhead">Supports kitting, repair, and outbound staging.</p></div></div>
           <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Josh.png');"></div><div><h4>Josh Persons</h4><div class="team-role">Global MHE Central Team Manager</div><p class="subhead">Leadership point for the lifecycle program and global alignment.</p></div></div>
           <div class="team-card"><div class="team-avatar" style="--photo: url('assets/team/Krishna.png');"></div><div><h4>Krishna Sankaramanchi</h4><div class="team-role">Business Intelligence Engineer</div><p class="subhead">Built the EOL forecasting model that predicts critical asset timing.</p></div></div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Calls to action">
+        <div class="cta-panel">
+          <div class="cta-header">
+            <h2>Stay connected &amp; take action</h2>
+            <p class="subhead">Quick links to dive deeper into the program, connect with experts, and shape what comes next.</p>
+          </div>
+          <div class="cta-list">
+            <a class="cta-button" href="#">
+              <span class="cta-label">2025 Cost Savings Dashboard<small>Explore the verified savings narrative</small></span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="cta-button" href="#">
+              <span class="cta-label">Equipment shutdown building flowchart<small>Reference guide for shutdown decisioning</small></span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="cta-button" href="#predictive-model">
+              <span class="cta-label">Predictive equipment forecasting dashboard<small>See how we project EOL with confidence</small></span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="cta-button" href="#">
+              <span class="cta-label">Apply to the Subject Matter Expert development program<small>Grow into a certified SME leader</small></span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="cta-button" href="#">
+              <span class="cta-label">We want to hear from you! Take our SURVEY! Est 2-5 Minutes<small>Your feedback guides future builds</small></span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="cta-button secondary" href="#">
+              <span class="cta-label">If you are interested in being a part of future rebuilds please join our mailing list</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="cta-button secondary" href="#">
+              <span class="cta-label">Dematic Rebuilds</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="cta-button secondary" href="#">
+              <span class="cta-label">Intelligrated Rebuilds</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="cta-button secondary" href="#">
+              <span class="cta-label">Intralox Rebuilds</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </section>
 
